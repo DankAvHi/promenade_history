@@ -1,0 +1,27 @@
+:root {
+     --breakpoint-small-mobile: 320px;
+     --breakpoint-mobile: 320px;
+     --breakpoint-large-mobile: 425px;
+     --breakpoint-tablet: 768px;
+     --breakpoint-laptop: 1024px;
+     --breakpoint-pc: 1440px;
+     --breakpoint-full-hd: 1920px;
+     --breakpoint-4k: 2560px;
+
+     --dark-white-color: #d4d4d4;
+     --dark-black-color: black;
+
+     --app-default-transition: 0.1s;
+     --app-padding: 12px;
+     --app-border-radius: 5px;
+     --app-background-color: white;
+     --app-font-size: 16px;
+     --app-default-font-weight: 400;
+     --app-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+          "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+     --app-default-font-color: black;
+     --app-dark-font-color: var(--dark-black-color);
+
+     --element-margin: 15px;
+}
