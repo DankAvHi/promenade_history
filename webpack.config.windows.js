@@ -27,8 +27,8 @@ module.exports = {
           new CopyPlugin({
                patterns: [
                     { from: "prisma", to: "./" },
+                    { from: "node_modules/.prisma/client/query_engine-windows.dll.node", to: "./" },
                     { from: ".env", to: "./" },
-                    { from: "node_modules/.prisma/client/libquery_engine-debian-openssl-3.0.x.so.node", to: "./" },
                ],
           }),
      ],
