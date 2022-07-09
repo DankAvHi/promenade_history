@@ -7,8 +7,9 @@
           "build": "npm run build-server && npm run build-client",
           "build-server": "npx del-cli ./dist && webpack",
           "build-client": "npx del-cli ./dist/public && cd client && npm run build && cpx ./build/** ../dist/public && cd ../dist",
-          "start-dev": "SET NODE_ENV=development&& npx nodemon index.ts",
-          "start": "SET NODE_ENV=production&& npm run build && node dist/index.js"
+          "start-dev-windows": "SET NODE_ENV=development&& npx nodemon index.ts",
+          "start-windows": "SET NODE_ENV=production&& npm run build && node dist/index.js",
+          "start": "NODE_ENV=production&& npm run build && node dist/index.js"
      },
      "author": "",
      "license": "ISC",
