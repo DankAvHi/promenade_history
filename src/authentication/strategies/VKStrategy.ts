@@ -13,7 +13,7 @@ const VKStrategy = () => {
                {
                     clientID: process.env.VK_APP_ID,
                     clientSecret: process.env.VK_SECURE_KEY,
-                    callbackURL: "https://aac6-188-170-195-193.eu.ngrok.io/api/authentication/vkontakte/callback",
+                    callbackURL: "http://46.229.215.178:8000/api/authentication/vkontakte/callback",
                },
                // @ts-ignore
                async (accessToken, refreshToken, params, profile, done) => {
