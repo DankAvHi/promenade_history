@@ -1,5 +1,6 @@
 import passport from "passport";
 
+// @ts-ignore
 import { Strategy } from "passport-vkontakte-no-pkginfo";
 
 const VKStrategy = () => {
@@ -14,6 +15,7 @@ const VKStrategy = () => {
                     clientSecret: process.env.VK_SECURE_KEY,
                     callbackURL: "https://aac6-188-170-195-193.eu.ngrok.io/api/authentication/vkontakte/callback",
                },
+               // @ts-ignore
                async (accessToken, refreshToken, params, profile, done) => {
                     console.log(profile);
                }
