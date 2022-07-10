@@ -6,7 +6,9 @@ import expressSession from "express-session";
 import passport from "passport";
 import path from "path";
 import apiRouter from "./src/api/api";
+
 import VKStrategy from "./src/authentication/strategies/VKStrategy";
+import corsOptions from "./src/setup/setupCors";
 
 dotenv.config();
 const { PORT = 8000, NODE_ENV = "production" } = process.env;
@@ -21,16 +23,19 @@ if (!SESSION_SECRET) {
 
 const app = express();
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(path.resolve(STATIC_PATH)));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(expressSession({ resave: true, secret: SESSION_SECRET, saveUninitialized: true }));
-app.use(passport.session());
 
+app.use(passport.initialize());
+app.use(passport.session());
 VKStrategy();
 
 app.use("/api", apiRouter);
+
+app.get("*", (_, res) => res.sendFile(path.resolve("client", "build", "index.html")));
 
 app.listen(PORT, () => {
      console.log(`\n⚡[INFO] Server launched at http://localhost:${PORT}\n`);

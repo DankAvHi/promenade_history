@@ -9,6 +9,10 @@ datasource db {
 }
 
 model user {
-  iduser Int    @id @unique(map: "iduser_UNIQUE")
-  vkid   String @unique(map: "vkid_UNIQUE") @db.VarChar(120)
+  iduser        Int     @id @unique(map: "iduser_UNIQUE") @default(autoincrement())
+  vkid          Int     @unique(map: "vkid_UNIQUE")
+  email         String  @unique(map: "email_UNIQUE") @db.VarChar(320)
+  ticket_active Boolean @default(false)
+  first_name    String  @db.VarChar(120)
+  last_name     String  @db.VarChar(120)
 }

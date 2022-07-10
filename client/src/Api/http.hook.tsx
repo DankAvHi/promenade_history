@@ -10,7 +10,10 @@ export const useHttp = () => {
                url: IHttpHook["url"],
                method: IHttpHook["method"] = "GET",
                body?: IHttpHook["body"],
-               headers = {} as Headers
+               headers = {} as Headers,
+               sendCredentials: IHttpHook["sendCredentials"] = false,
+               isJSON: IHttpHook["isJSON"] = true,
+               waitingForJson: IHttpHook["waitingForJson"] = true
           ) => {
                setLoading(true);
                try {
@@ -18,21 +21,21 @@ export const useHttp = () => {
                          body = JSON.stringify(body);
                          headers.set("Content-Type", "application/json");
                     }
+                    const credentials = sendCredentials ? "include" : "same-origin";
 
                     const response = await fetch(url, {
                          method,
                          body,
+                         credentials,
                          headers,
                     });
-
-                    const data: any = await response.json();
-
                     if (!response.ok) {
-                         if (data && data.message) {
-                              throw new Error(data.message || "Что-то пошло не так");
+                         if (response.status) {
+                              throw new Error(response.statusText || "Что-то пошло не так");
                          }
                          throw new Error("Что-то пошло не так");
                     }
+                    const data: any = await (waitingForJson ? response.json() : response);
 
                     setLoading(false);
 
