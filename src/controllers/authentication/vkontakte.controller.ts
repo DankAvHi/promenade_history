@@ -1,10 +1,15 @@
 import { RequestHandler } from "express";
 import jsonWebToken from "jsonwebtoken";
 import requestServerError from "../../errors/requestServerError/requestServerError.error";
+import { HOME_PAGE_ROUTE } from "../../setup/setupConfig";
 import prisma from "../../setup/setupPrismaConnection";
 
-const authenticationVkontakteController: RequestHandler = async (req, res, next) => {
+const vkontakteController: RequestHandler = async (req, res, next) => {
      try {
+          const cookies = req.cookies;
+          if (cookies.token && cookies.iduser) {
+               return res.redirect("/");
+          }
           if (!process.env.JWT_SECRET || !req.user) {
                throw new Error(`\n⛔[ERROR] JWT_SECRT doesn't provided in .env file\n`);
           }
@@ -32,10 +37,10 @@ const authenticationVkontakteController: RequestHandler = async (req, res, next)
           const iduser = newUser.vkid;
           res.cookie("token", token);
           res.cookie("iduser", iduser);
-          return res.redirect("/");
+          res.redirect(HOME_PAGE_ROUTE);
      } catch (e) {
           requestServerError(e, res);
      }
 };
 
-export default authenticationVkontakteController;
+export default vkontakteController;

@@ -8,20 +8,24 @@
      --breakpoint-full-hd: 1920px;
      --breakpoint-4k: 2560px;
 
-     --dark-white-color: #d4d4d4;
+     --white-color: white;
      --dark-black-color: black;
+     --dark-blue-color: #101134;
+     --darkest-blue-color: #000320;
+     --accient-red-color: #e2005f;
 
      --app-default-transition: 0.1s;
      --app-padding: 12px;
      --app-border-radius: 5px;
-     --app-background-color: white;
+     --app-background-color: var(--darkest-blue-color);
      --app-font-size: 16px;
      --app-default-font-weight: 400;
-     --app-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-          "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+     --app-font-family: Montserrat;
 
-     --app-default-font-color: black;
+     --app-default-font-color: var(--white-color);
      --app-dark-font-color: var(--dark-black-color);
+     --app-accient-font-color: var(--accient-red-color);
+     --navbar-background-color: var(--dark-blue-color);
 
      --element-margin: 15px;
 }

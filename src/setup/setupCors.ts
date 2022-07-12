@@ -10,7 +10,7 @@ const corsOptions: CorsOptions = {
           if (!origin || whitelist.indexOf(origin) !== -1) {
                callback(null, true);
           } else {
-               callback(console.log(`\n⚠️ [server] Attempt to fetch from unknown origin\n`));
+               callback(console.log(`\n⚠️ [server] Attempt to fetch from unknown origin: ${origin}\n`));
           }
      },
 

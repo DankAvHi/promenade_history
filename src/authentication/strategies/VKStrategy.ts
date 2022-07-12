@@ -1,10 +1,11 @@
 import passport from "passport";
 // @ts-ignore
 import { Strategy } from "passport-vkontakte-no-pkginfo";
+import { HOME_PAGE_ROUTE, URL, VK_APP_ID, VK_CALLBACK_URL, VK_SECURE_KEY } from "../../setup/setupConfig";
 import prisma from "../../setup/setupPrismaConnection";
 
 const VKStrategy = () => {
-     if (!process.env.VK_APP_ID || !process.env.VK_SECURE_KEY || !process.env.VK_CALLBACK_URL || !process.env.URL) {
+     if (!VK_APP_ID || !VK_SECURE_KEY || !VK_CALLBACK_URL || !URL) {
           throw new Error(`\n⛔[ERROR] VK Api keys doesn't provided in .env file\n`);
      }
 
@@ -12,9 +13,9 @@ const VKStrategy = () => {
           new Strategy(
                {
                     ...{
-                         clientID: process.env.VK_APP_ID,
-                         clientSecret: process.env.VK_SECURE_KEY,
-                         callbackURL: process.env.URL + process.env.VK_CALLBACK_URL,
+                         clientID: VK_APP_ID,
+                         clientSecret: VK_SECURE_KEY,
+                         callbackURL: HOME_PAGE_ROUTE + VK_CALLBACK_URL,
                     },
                     scope: ["email"],
                     profileFields: ["email"],

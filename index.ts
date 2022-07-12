@@ -1,6 +1,6 @@
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import dotenv from "dotenv";
+
 import express from "express";
 import expressSession from "express-session";
 import passport from "passport";
@@ -8,22 +8,17 @@ import path from "path";
 import apiRouter from "./src/api/api";
 
 import VKStrategy from "./src/authentication/strategies/VKStrategy";
-import corsOptions from "./src/setup/setupCors";
 
-dotenv.config();
-const { PORT = 8000, NODE_ENV = "production" } = process.env;
-const STATIC_PATH =
-     NODE_ENV == "development" || process.argv[2] === "development"
-          ? path.resolve(__dirname, "client", "build")
-          : path.resolve(__dirname, "public");
-const SESSION_SECRET = process.env.SESSION_SECRET;
+import { API_ROUTE } from "./shared/routes/api/api.shared";
+import { PORT, SESSION_SECRET, STATIC_PATH } from "./src/setup/setupConfig";
+
 if (!SESSION_SECRET) {
      throw new Error(`\n⛔[ERROR] SESSION_SECRET is not provided in .env file\n`);
 }
 
 const app = express();
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve(STATIC_PATH)));
 app.use(cookieParser(process.env.COOKIE_SECRET));
@@ -33,7 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 VKStrategy();
 
-app.use("/api", apiRouter);
+app.use(API_ROUTE, apiRouter);
 
 app.get("*", (_, res) => res.sendFile(path.resolve("client", "build", "index.html")));
 
