@@ -3,6 +3,6 @@ import verifyUserController from "../../controllers/authentication/verifyUser.co
 
 const verifyUserRouter = Router();
 
-verifyUserRouter.post("/", verifyUserController);
+verifyUserRouter.get("/", verifyUserController);
 
 export default verifyUserRouter;

@@ -6,8 +6,8 @@ import { useRoutes } from "./App.routes";
 import AuthContext from "./contexts/AuthContext";
 
 function App() {
-     const { token, login, logout, userID } = useAuth();
-     const isAuthenticated = !!token;
+     const { login, logout, userID } = useAuth();
+     const isAuthenticated = !!userID;
 
      const routes = useRoutes(isAuthenticated);
 
@@ -20,7 +20,7 @@ function App() {
      ];
 
      return (
-          <AuthContext.Provider value={{ isAuthenticated, login, logout, token, userID }}>
+          <AuthContext.Provider value={{ isAuthenticated, login, logout, userID }}>
                <div className={styles.App}>
                     <Navigation siteSections={siteSections} />
                     {routes}

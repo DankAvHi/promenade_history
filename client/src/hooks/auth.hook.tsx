@@ -1,19 +1,15 @@
-import Cookies from "js-cookie";
 import { useCallback, useEffect, useState } from "react";
 import { api } from "../Api/index.api";
 
 export const useAuth = () => {
      const { verify, error } = api().useVerifyUserApi();
-     const [token, setToken] = useState<string | null>(null);
      const [userID, setUserID] = useState<number | null>(null);
 
-     const login = useCallback((jwtToken: string, id: number) => {
-          setToken(jwtToken);
+     const login = useCallback((id: number) => {
           setUserID(id);
      }, []);
 
      const logout = useCallback(() => {
-          setToken(null);
           setUserID(null);
      }, []);
 
@@ -23,18 +19,13 @@ export const useAuth = () => {
                     const data = await verify();
 
                     if (data.succes) {
-                         const token = Cookies.get("token");
-                         if (!token) {
-                              setToken(null);
-                              throw new Error("No cookie token");
-                         }
-                         login(token, data.iduser);
+                         login(data.vkid);
                     } else {
-                         setToken(null);
+                         logout();
                     }
                } catch (e) {
                     console.error(e);
-                    setToken(null);
+                    logout();
                }
           };
 
@@ -43,5 +34,5 @@ export const useAuth = () => {
           // eslint-disable-next-line
      }, []);
 
-     return { login, logout, token, userID, error };
+     return { login, logout, userID, error };
 };

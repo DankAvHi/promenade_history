@@ -11,11 +11,34 @@ export const {
      VK_APP_ID,
      VK_SECURE_KEY,
      VK_CALLBACK_URL,
+     REFRESH_TOKEN_EXPIRY,
+     JWT_SECRET,
+     SESSION_EXPIRY,
+     REFRESH_TOKEN_SECRET,
 } = process.env;
+
+if (!REFRESH_TOKEN_EXPIRY) {
+     throw new Error(`\n⛔[ERROR] REFRESH_TOKEN_EXPIRY is not provided in .env file\n`);
+}
 
 export const STATIC_PATH =
      NODE_ENV == "development" || process.argv[2] === "development"
           ? path.resolve("client", "build")
           : path.resolve("public");
 
-export const HOME_PAGE_ROUTE = NODE_ENV == "development" || process.argv[2] === "development" ? CLIENT_URL : URL;
+export const HOME_PAGE_ROUTE = NODE_ENV == "development" || process.argv[2] === "development" ? URL : URL;
+
+export const COOKIE_OPTIONS = {
+     // httpOnly: true,
+     // secure: true,
+     signed: true,
+     maxAge: eval(REFRESH_TOKEN_EXPIRY),
+     // sameSite: "none",
+};
+
+export const NOT_EXPIRED_COOKIE_OPTIONS = {
+     // httpOnly: true,
+     // secure: true,
+     signed: true,
+     // sameSite: "none",
+};
