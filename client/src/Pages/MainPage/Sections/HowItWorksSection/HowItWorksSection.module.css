@@ -1,0 +1,68 @@
+.HowItWorksSection {
+     border-radius: var(--section-boder-radius);
+
+     padding: var(--section-padding);
+     padding-top: 100px;
+     padding-bottom: 80px;
+
+     background: var(--how-it-works-background);
+}
+.container {
+     margin: 0 auto;
+
+     max-width: 1600px;
+
+     background-image: url("./Assets/questionBackground.png");
+     background-repeat: no-repeat;
+     background-size: contain;
+     background-position: top center;
+
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+}
+.heading {
+     margin-bottom: 100px;
+}
+
+.list {
+     max-width: 1180px;
+     width: 100%;
+}
+.item {
+     width: 100%;
+
+     display: flex;
+     align-items: center;
+}
+.number {
+     margin-right: 48px;
+
+     font-size: 21.25rem;
+     color: var(--purpule-50);
+     line-height: 1.5;
+}
+.contentHeading {
+     margin-bottom: 36px;
+}
+.text {
+     font-size: 2rem;
+}
+
+.actionCall {
+     margin-bottom: 20px;
+
+     font-weight: 600;
+     font-size: 1.25rem;
+}
+
+.actionButton {
+     border-radius: 60px;
+
+     padding: 14px 0;
+
+     max-width: 564px;
+     width: 100%;
+
+     background-color: var(--purpule-40);
+}

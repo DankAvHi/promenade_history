@@ -22,5 +22,6 @@
      max-height: 900px;
      height: 100%;
 
-     background-image: url("../../Assets/Images/fon.svg");
+     background-image: url("../../Assets/Images/headerContainer.png");
+     backdrop-filter: blur(15px);
 }

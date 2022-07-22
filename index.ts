@@ -1,9 +1,11 @@
+import ConnectSQLite3 from "connect-sqlite3";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
 import expressSession from "express-session";
 import passport from "passport";
 import path from "path";
+
 import apiRouter from "./src/api/api";
 import VKStrategy from "./src/authentication/strategies/VKStrategy";
 
@@ -16,6 +18,8 @@ if (!SESSION_SECRET) {
 }
 
 const app = express();
+const SQLiteStore = ConnectSQLite3(expressSession);
+const store = new SQLiteStore({ table: "sessions", db: "sessions.db" });
 
 app.use(cors());
 app.use(express.json());
@@ -27,6 +31,8 @@ app.use(
           rolling: true,
           saveUninitialized: false,
           cookie: COOKIE_OPTIONS,
+          //@ts-ignore
+          store: store,
      })
 );
 app.use(express.static(path.resolve(STATIC_PATH)));

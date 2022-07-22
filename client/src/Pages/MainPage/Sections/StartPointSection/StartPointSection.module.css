@@ -1,0 +1,117 @@
+.StartPointSection {
+     border-radius: var(--section-boder-radius);
+
+     padding: var(--section-padding);
+     padding-bottom: 48px;
+     padding-top: 100px;
+
+     background: var(--start-point-background);
+}
+.container {
+     margin: 0 auto;
+
+     max-width: 1600px;
+
+     background-image: url("./Assets/mailBackground.png");
+     background-repeat: no-repeat;
+     background-size: contain;
+     background-position: bottom center;
+
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+}
+.heading {
+     margin-bottom: 140px;
+}
+.locationInfo {
+     margin-bottom: 130px;
+
+     max-width: 1180px;
+     width: 100%;
+
+     display: flex;
+     align-items: center;
+}
+
+@media screen and (max-width: 1080px) {
+     .locationInfo {
+          flex-direction: column;
+     }
+}
+
+.locationTextsContainer {
+     max-height: 460px;
+}
+.locationImage {
+     margin-right: 10px;
+
+     max-width: 718px;
+     max-height: 460px;
+     width: 100%;
+     height: 100%;
+}
+
+@media screen and (max-width: 1080px) {
+     .locationImage {
+          margin-bottom: 15px;
+     }
+}
+
+.locationTexts {
+     margin-bottom: 8px;
+
+     border: 1px solid var(--blue-50);
+     border-radius: 40px;
+
+     padding: 24px;
+
+     background-color: var(--blue-02);
+}
+
+.locationTitle {
+     margin-bottom: 20px;
+
+     font-size: 2.25rem;
+}
+.locationDescription {
+     font-size: 1.25rem;
+     font-weight: 200;
+}
+.timeTitle {
+     margin-right: 10px;
+
+     display: inline-block;
+
+     font-size: 1.875rem;
+}
+.timeDescription {
+     display: inline;
+
+     font-size: 1.25rem;
+     font-weight: 200;
+}
+.sellerPosition {
+     margin-right: 10px;
+
+     max-width: 300px;
+
+     display: inline-block;
+
+     font-size: 2.3rem;
+     line-height: 40px;
+}
+.serviceAcces {
+     margin-bottom: 90px;
+
+     max-width: 1180px;
+
+     font-size: 2.5rem;
+}
+.registryInfo {
+     margin-bottom: 112px;
+
+     max-width: 1180px;
+
+     font-size: 2.25rem;
+}

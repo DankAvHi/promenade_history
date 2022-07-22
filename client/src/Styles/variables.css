@@ -7,27 +7,47 @@
      --breakpoint-pc: 1440px;
      --breakpoint-full-hd: 1920px;
      --breakpoint-4k: 2560px;
-     --max-container-width: 1280px;
+     --max-container-width: 1268px;
      --max-screen-height: 1080px;
 
-     --white-color: white;
-     --dark-black-color: black;
-     --dark-blue-color: #101134;
-     --darkest-blue-color: #000320;
-     --accient-red-color: #e2005f;
+     --white-90: white;
+     --black-00: black;
+     --blue-00: #000021;
+     --blue-01: #000214;
+     --blue-02: #000218;
+     --blue-03: #000320;
+     --blue-04: #01002d;
+     --blue-05: #101134;
+     --blue-06: #02004d;
+     --blue-50: #001aff;
+     --purpule-00: #0e001f;
+     --purpule-01: #100020;
+     --purpule-02: #17002f;
+     --purpule-40: #5d00d2;
+     --purpule-50: #7100ff;
+     --purpule-80: #ad00ff;
+     --crimson-90: #e2005f;
 
      --app-default-transition: 0.1s;
      --app-padding: 12px;
      --app-border-radius: 5px;
-     --app-background-color: var(--darkest-blue-color);
+     --app-background-color: var(--blue-03);
      --app-font-size: 16px;
      --app-default-font-weight: 400;
      --app-font-family: Montserrat;
 
-     --app-default-font-color: var(--white-color);
-     --app-dark-font-color: var(--dark-black-color);
-     --app-accient-font-color: var(--accient-red-color);
-     --navbar-background-color: var(--dark-blue-color);
+     --app-default-font-color: var(--white-90);
+     --app-dark-font-color: var(--black-00);
+     --app-accient-font-color: var(--crimson-90);
+     --navbar-background-color: var(--blue-04);
+     --what-is-background: linear-gradient(180deg, var(--blue-04) 0%, var(--blue-06) 25%);
+     --how-it-works-background: linear-gradient(180deg, var(--blue-00) 0%, var(--purpule-00) 13.02%);
+     --start-point-background: linear-gradient(180deg, var(--blue-01) 0%, var(--blue-03) 22.07%);
+     --more-about-background: linear-gradient(180deg, var(--purpule-01) 0%, var(--purpule-02) 22.07%);
+     --pushkin-card-background: var(--black-00);
 
+     --section-padding: 0 30px;
+     --section-padding-top: 76px;
+     --section-boder-radius: 0px 0px 40px 40px;
      --element-margin: 15px;
 }

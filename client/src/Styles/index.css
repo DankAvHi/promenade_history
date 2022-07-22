@@ -22,7 +22,10 @@
 button {
      cursor: pointer;
 }
-
+span,
+p {
+     font-size: inherit;
+}
 html,
 body,
 #root {

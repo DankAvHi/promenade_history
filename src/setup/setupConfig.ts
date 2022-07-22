@@ -26,7 +26,7 @@ export const STATIC_PATH =
           ? path.resolve("client", "build")
           : path.resolve("public");
 
-export const HOME_PAGE_ROUTE = NODE_ENV == "development" || process.argv[2] === "development" ? URL : URL;
+export const HOME_PAGE_ROUTE = NODE_ENV == "development" || process.argv[2] === "development" ? CLIENT_URL : URL;
 
 export const COOKIE_OPTIONS = {
      // httpOnly: true,

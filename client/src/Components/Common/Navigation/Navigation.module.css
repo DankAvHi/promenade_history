@@ -1,4 +1,5 @@
 .Navigation {
+     z-index: 1;
      transition: 0.5s;
      position: fixed;
      top: 20px;

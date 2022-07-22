@@ -1,0 +1,41 @@
+.MoreAboutSection {
+     overflow: hidden;
+
+     border-radius: var(--section-boder-radius);
+
+     padding: var(--section-padding);
+     padding-top: 68px;
+
+     background: var(--more-about-background);
+}
+
+.container {
+     margin: 0 auto;
+
+     padding-bottom: 78px;
+
+     max-width: 1600px;
+
+     background-image: url("./Assets/burgerBackground.png");
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position-x: center;
+     background-position-y: -20%;
+
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+}
+
+.heading {
+     margin-bottom: 55px;
+
+     line-height: 100px;
+}
+
+.content {
+     max-width: 1180px;
+
+     font-weight: 500;
+     font-size: 2.5rem;
+}
