@@ -25,7 +25,9 @@
      --purpule-02: #17002f;
      --purpule-40: #5d00d2;
      --purpule-50: #7100ff;
+     --purpule-70: #8f00ff;
      --purpule-80: #ad00ff;
+     --purpule-90: #fa00ff;
      --crimson-90: #e2005f;
 
      --app-default-transition: 0.1s;
@@ -40,6 +42,7 @@
      --app-dark-font-color: var(--black-00);
      --app-accient-font-color: var(--crimson-90);
      --navbar-background-color: var(--blue-04);
+     --header-button-background: linear-gradient(180deg, var(--purpule-90) -43.28%, var(--purpule-70) 156.67%);
      --what-is-background: linear-gradient(180deg, var(--blue-04) 0%, var(--blue-06) 25%);
      --how-it-works-background: linear-gradient(180deg, var(--blue-00) 0%, var(--purpule-00) 13.02%);
      --start-point-background: linear-gradient(180deg, var(--blue-01) 0%, var(--blue-03) 22.07%);

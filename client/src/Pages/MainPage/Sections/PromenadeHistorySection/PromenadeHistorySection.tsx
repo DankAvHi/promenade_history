@@ -7,7 +7,9 @@ const PromenadeHistorySection = () => {
      return (
           <div className={styles.PromenadeHistorySection}>
                <div className={styles.container}>
-                    <SectionHeading className={styles.heading}>{PromenadeHistorySectionText.heading}</SectionHeading>
+                    <SectionHeading headingLevel="h1" className={styles.heading}>
+                         {PromenadeHistorySectionText.heading}
+                    </SectionHeading>
 
                     <p className={styles.text}>
                          <span className={styles.accientText}> {PromenadeHistorySectionText.accient}</span>
