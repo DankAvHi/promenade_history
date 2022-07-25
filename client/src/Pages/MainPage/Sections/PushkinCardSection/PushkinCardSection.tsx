@@ -8,9 +8,9 @@ import PushkinCardSectionText from "./PushkinCardSection.text";
 
 const PushkinCardSection = () => {
      return (
-          <div className={styles.PushkinCardSection}>
+          <div id="pushkinCard" className={styles.PushkinCardSection}>
                <div className={styles.container}>
-                    <SectionHeading fontSize={6} className={styles.heading}>
+                    <SectionHeading fontSize={5.75} className={styles.heading}>
                          {PushkinCardSectionText.heading}
                     </SectionHeading>
 

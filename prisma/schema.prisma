@@ -12,6 +12,6 @@ model user {
   iduser        Int     @id @unique(map: "iduser_UNIQUE")
   vkid          Int     @unique(map: "vkid_UNIQUE")
   ticket_active Boolean @default(false)
-  tokens        String? @db.LongText
   name          String  @db.Text
+  image         String? @db.LongText
 }

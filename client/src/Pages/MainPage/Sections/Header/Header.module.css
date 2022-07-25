@@ -2,6 +2,8 @@
      border-radius: 0 0 40px 40px;
 
      padding-top: 140px;
+     padding-left: 148px;
+     padding-right: 148px;
 
      width: 100%;
      height: var(--max-screen-height);
@@ -11,31 +13,84 @@
      background-position: center;
      background-repeat: no-repeat;
 }
-
+@media screen and (max-width: 1680px) {
+     .Header {
+          padding: 30px;
+          padding-top: 140px;
+     }
+}
+@media screen and (max-width: 768px) {
+     .Header {
+          padding-top: 20px;
+     }
+}
 .container {
      margin: 0 auto;
+     position: relative;
 
      border-radius: 40px;
 
-     max-width: var(--max-container-width);
+     max-width: 1384px;
      width: 100%;
      max-height: 900px;
      height: 100%;
 
      background-image: url("../../Assets/Images/headerContainer.png");
+     background-repeat: no-repeat;
      backdrop-filter: blur(15px);
      background-color: rgb(0 0 0 / 23%);
 
      display: flex;
-     justify-content: flex-end;
+     justify-content: space-between;
 }
 
+@media screen and (max-width: 1280px) {
+     .container {
+          max-height: 900px;
+
+          justify-content: flex-end;
+          align-items: flex-end;
+     }
+}
+@media screen and (max-width: 768px) {
+     .container {
+          align-items: flex-start;
+     }
+}
 .logoImage {
-     position: absolute;
-     top: 2px;
-     left: -145px;
+     transition: 0.5s;
+     position: relative;
+     top: 15px;
+     left: -148px;
+
+     max-width: 800px;
+     max-height: 793px;
+     width: 100%;
+     height: 100%;
+}
+@media screen and (max-width: 1680px) {
+     .logoImage {
+          top: 30%;
+          transform: translate(0, -30%);
+          left: 15px;
+
+          max-width: 40vw;
+          max-height: 40vw;
+     }
 }
 
+@media screen and (max-width: 1280px) {
+     .logoImage {
+          position: absolute;
+          top: 0%;
+          transform: translate(0, -0%);
+     }
+}
+@media screen and (max-width: 768px) {
+     .logoImage {
+          display: none;
+     }
+}
 .content {
      padding: 50px 40px 20px;
 
@@ -69,7 +124,7 @@
      font-size: 4rem;
 }
 .secondSubText {
-     margin-bottom: 78px;
+     margin-bottom: 200px;
 
      font-weight: 500;
      font-size: 2.25rem;

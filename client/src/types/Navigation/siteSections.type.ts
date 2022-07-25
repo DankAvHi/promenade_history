@@ -1,8 +1,8 @@
-type SiteSectionType = {
+type SiteSection = {
      id: string;
      label: string;
 };
 
-type SiteSectionsType = Array<SiteSectionType>;
+type SiteSections = Array<SiteSection>;
 
-export default SiteSectionsType;
+export default SiteSections;

@@ -6,20 +6,20 @@ import { actionCallText, actionText, headingText, itemsTexts } from "./HowItWork
 
 const HowItWorksSection = () => {
      return (
-          <div className={styles.HowItWorksSection}>
+          <div id="howItWorks" className={styles.HowItWorksSection}>
                <div className={styles.container}>
                     <SectionHeading className={styles.heading}>{headingText}</SectionHeading>
 
                     <ul className={styles.list}>
                          {itemsTexts.map((item, index) => {
                               return (
-                                   <li className={styles.item}>
+                                   <li key={index} className={styles.item}>
                                         <span className={styles.number}>{index + 1}</span>
                                         <div className={styles.textContainer}>
                                              <Heading
                                                   className={styles.contentHeading}
                                                   align="start"
-                                                  fontSize={2.375}
+                                                  fontSize={2.15}
                                                   fontWeight={700}
                                              >
                                                   {item.heading}

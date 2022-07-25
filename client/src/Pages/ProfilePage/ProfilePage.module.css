@@ -1,0 +1,38 @@
+.ProfilePage {
+     min-height: 100vh;
+
+     background: var(--profile-page-backround);
+}
+
+.container {
+     margin: 0 auto;
+
+     padding-top: 200px;
+
+     max-width: 1020px;
+     width: 100%;
+}
+
+.heading {
+     margin-bottom: 100px;
+}
+
+.welcome {
+     display: flex;
+     align-items: flex-start;
+}
+.userImage {
+     margin-right: 30px;
+     border-radius: 100%;
+}
+.welcomeHeading {
+     margin-bottom: 20px;
+
+     font-weight: 500;
+     font-size: 2rem;
+}
+
+.userName {
+     font-weight: 700;
+     font-size: 3rem;
+}

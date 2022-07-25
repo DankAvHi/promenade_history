@@ -3,9 +3,9 @@ import textStyles from "../../../../Styles/text.module.css";
 const WhatIsComboSectionText = {
      heading: (
           <>
-               <span>{"Подробнее про "}</span>
+               <span>{"Что такое "}</span>
                <br />
-               <span className={textStyles.crimson90}>{"променад-хистори"}</span>
+               <span className={textStyles.crimson90}>{"хистори комбо?"}</span>
           </>
      ),
 

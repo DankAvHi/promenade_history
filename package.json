@@ -5,7 +5,9 @@
      "main": "index.js",
      "scripts": {
           "build": "npm run build-server && npm run build-client",
+          "build-windows": "npm run build-server-windows && npm run build-client",
           "build-server": "npx del-cli ./dist && webpack",
+          "build-server-windows": "npx del-cli ./dist && webpack --config webpack.config.windows.js",
           "build-client": "npx del-cli ./dist/public && cd client && npm run build && npx cpx \"./build/**\" \"../dist/public\" && cd ../dist",
           "start-dev-windows": "SET NODE_ENV=development&& npx nodemon index.ts",
           "start-windows": "SET NODE_ENV=production&& npm run build && node dist/index.js",

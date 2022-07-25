@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../../App/contexts/AuthContext";
 import useWindowSize from "../../../hooks/windowSize.hook";
 import { AUTH_LOGOUT_API, AUTH_VKONTAKTE_API } from "../../../shared/routes/api/api.shared";
-import SiteSectionsType from "../../../types/Navigation/siteSections.type";
+import SiteSections from "../../../types/Navigation/siteSections.type";
 import menuImage from "./Assets/Images/menuIcon.png";
 import vkImage from "./Assets/Images/vkIcon.png";
 import styles from "./Navigation.module.css";
-import { AUTH_WITH, UNAUTH } from "./Navigation.text";
+import { AUTH_WITH, PROFILE_LINK_TEXT, UNAUTH } from "./Navigation.text";
 
-type NavigationPropsType = {
-     siteSections: SiteSectionsType;
+type NavigationProps = {
+     siteSections: SiteSections;
 };
 
-export default function Navigation({ siteSections }: NavigationPropsType) {
+export default function Navigation({ siteSections }: NavigationProps) {
      const { size } = useWindowSize();
      const { isAuthenticated } = useContext(AuthContext);
 
@@ -21,6 +21,12 @@ export default function Navigation({ siteSections }: NavigationPropsType) {
 
      const toogleMenuButtonOnclickHandler = () => {
           setIsMenuOpen(!isMenuOpen);
+     };
+
+     const setIsUserHasAuthenticated = (status: boolean) => {
+          return () => {
+               localStorage.setItem("isUserHasAuthenticated", status ? "true" : "false");
+          };
      };
 
      useEffect(() => {
@@ -38,13 +44,28 @@ export default function Navigation({ siteSections }: NavigationPropsType) {
                          {siteSections.map((section) => {
                               return (
                                    <li className={styles.item} key={section.id}>
-                                        <Link to={`/#${section.id}`} className={styles.link}>
+                                        <Link
+                                             to={`/#${section.id}`}
+                                             onClick={toogleMenuButtonOnclickHandler}
+                                             className={styles.link}
+                                        >
                                              {section.label}
                                         </Link>
                                    </li>
                               );
                          })}
-                         <a href={isAuthenticated ? AUTH_LOGOUT_API : AUTH_VKONTAKTE_API} className={styles.vkLink}>
+                         {isAuthenticated ? (
+                              <li className={styles.item}>
+                                   <Link className={styles.link} to={`/profile`}>
+                                        {PROFILE_LINK_TEXT}
+                                   </Link>
+                              </li>
+                         ) : null}
+                         <a
+                              href={isAuthenticated ? AUTH_LOGOUT_API : AUTH_VKONTAKTE_API}
+                              onClick={setIsUserHasAuthenticated(!isAuthenticated)}
+                              className={styles.vkLink}
+                         >
                               <span className={styles.vkText}>{isAuthenticated ? UNAUTH : AUTH_WITH}</span>
                               <img className={styles.vkImage} src={vkImage} alt="" />
                          </a>

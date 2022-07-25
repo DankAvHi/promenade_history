@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import { ComponentPropsType } from "../../IComponent";
+import { ComponentProps } from "../../Component";
 
-export type HeadingPropsType = ComponentPropsType &
+export type HeadingProps = ComponentProps &
      React.HTMLAttributes<HTMLHeadingElement> & {
           headingLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
           fontSize?: React.CSSProperties["fontSize"];

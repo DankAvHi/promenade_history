@@ -1,6 +1,8 @@
 @import url("../Assets/fonts/Montserrat/static/stylesheet.css");
 @import url(./variables.css);
 * {
+     scroll-behavior: smooth;
+
      margin: 0;
      list-style: none;
 

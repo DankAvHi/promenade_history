@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
-import { ComponentPropsType } from "../../IComponent";
+import { ComponentProps } from "../../Component.d";
 
-export type ButtonPropsType = ComponentPropsType &
+export type ButtonProps = ComponentProps &
      React.HTMLAttributes<HTMLButtonElement> & {
           type?: "button" | "link";
           href?: string;

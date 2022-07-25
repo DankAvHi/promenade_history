@@ -6,7 +6,7 @@ import StartPointText from "./StartPointSection.text";
 
 const StartPointSection = () => {
      return (
-          <div className={styles.StartPointSection}>
+          <div id="startPoint" className={styles.StartPointSection}>
                <div className={styles.container}>
                     <SectionHeading className={styles.heading}>{StartPointText.heading}</SectionHeading>
 

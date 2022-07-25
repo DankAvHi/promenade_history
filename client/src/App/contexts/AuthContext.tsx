@@ -4,15 +4,13 @@ interface IAuthContext {
      login: (id: number) => void;
      logout: () => void;
 
-     userID: number | null;
-     isAuthenticated: boolean;
+     isAuthenticated: boolean | "unknow";
 }
 
 const defaultState: IAuthContext = {
      login: (id: number) => {},
      logout: () => {},
 
-     userID: null,
      isAuthenticated: false,
 };
 

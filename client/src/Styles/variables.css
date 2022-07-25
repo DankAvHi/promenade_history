@@ -15,25 +15,31 @@
      --blue-00: #000021;
      --blue-01: #000214;
      --blue-02: #000218;
-     --blue-03: #000320;
-     --blue-04: #01002d;
-     --blue-05: #101134;
-     --blue-06: #02004d;
+     --blue-03: #00061e;
+     --blue-04: #000320;
+     --blue-05: #01002d;
+     --blue-06: #000a2c;
+     --blue-07: #101134;
+     --blue-08: #05003f;
+     --blue-09: #02004d;
      --blue-50: #001aff;
      --purpule-00: #0e001f;
      --purpule-01: #100020;
      --purpule-02: #17002f;
+     --purpule-03: #1d0033;
      --purpule-40: #5d00d2;
      --purpule-50: #7100ff;
      --purpule-70: #8f00ff;
      --purpule-80: #ad00ff;
      --purpule-90: #fa00ff;
+     --orange-50: #e9b85e;
      --crimson-90: #e2005f;
+     --teal-70: #00afaf;
 
      --app-default-transition: 0.1s;
      --app-padding: 12px;
      --app-border-radius: 5px;
-     --app-background-color: var(--blue-03);
+     --app-background-color: var(--blue-04);
      --app-font-size: 16px;
      --app-default-font-weight: 400;
      --app-font-family: Montserrat;
@@ -41,13 +47,21 @@
      --app-default-font-color: var(--white-90);
      --app-dark-font-color: var(--black-00);
      --app-accient-font-color: var(--crimson-90);
-     --navbar-background-color: var(--blue-04);
+
+     --navbar-background-color: var(--blue-05);
      --header-button-background: linear-gradient(180deg, var(--purpule-90) -43.28%, var(--purpule-70) 156.67%);
-     --what-is-background: linear-gradient(180deg, var(--blue-04) 0%, var(--blue-06) 25%);
+     --what-is-background: linear-gradient(180deg, var(--blue-05) 0%, var(--blue-09) 25%);
      --how-it-works-background: linear-gradient(180deg, var(--blue-00) 0%, var(--purpule-00) 13.02%);
-     --start-point-background: linear-gradient(180deg, var(--blue-01) 0%, var(--blue-03) 22.07%);
+     --start-point-background: linear-gradient(180deg, var(--blue-01) 0%, var(--blue-04) 22.07%);
      --more-about-background: linear-gradient(180deg, var(--purpule-01) 0%, var(--purpule-02) 22.07%);
+     --history-combo-background: linear-gradient(180deg, var(--blue-03) 0%, var(--blue-06) 22.07%);
      --pushkin-card-background: var(--black-00);
+     --profile-page-backround: linear-gradient(180deg, var(--blue-08) 0%, var(--purpule-03) 75%);
+
+     --toppopup-warning-background-color: var(--orange-50);
+     --toppopup-danger-background-color: var(--crimson-90);
+     --toppopup-succeful-background-color: var(--teal-70);
+     --toppopup-info-background-color: var(--blue-50);
 
      --section-padding: 0 30px;
      --section-padding-top: 76px;

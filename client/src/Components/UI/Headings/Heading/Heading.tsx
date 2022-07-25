@@ -1,5 +1,5 @@
 import React from "react";
-import { HeadingPropsType } from "../IHeading";
+import { HeadingProps } from "../Heading.d";
 import styles from "./Heading.module.css";
 
 const Heading = ({
@@ -9,7 +9,7 @@ const Heading = ({
      fontSize = 2.25,
      fontWeight = 600,
      align = "center",
-}: HeadingPropsType) => {
+}: HeadingProps) => {
      const Heading = ({ ...props }: React.HTMLAttributes<HTMLHeadingElement>) =>
           React.createElement(headingLevel, props, children);
 

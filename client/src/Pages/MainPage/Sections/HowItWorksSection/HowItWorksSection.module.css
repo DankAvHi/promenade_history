@@ -26,34 +26,50 @@
 }
 
 .list {
+     margin-bottom: 30px;
+
      max-width: 1180px;
      width: 100%;
 }
 .item {
+     margin-bottom: 15px;
+
      width: 100%;
+     max-width: 1180px;
 
      display: flex;
      align-items: center;
 }
 .number {
-     margin-right: 48px;
+     width: 300px;
 
-     font-size: 21.25rem;
+     display: block;
+
+     font-size: 21rem;
      color: var(--purpule-50);
-     line-height: 1.5;
+     line-height: 1.25;
+}
+@media screen and (max-width: 1680px) {
+     .number {
+          font-size: 18rem;
+     }
+}
+.textContainer {
+     max-width: 974px;
+     width: 100%;
 }
 .contentHeading {
      margin-bottom: 36px;
 }
 .text {
-     font-size: 2rem;
+     font-size: 1.75rem;
 }
 
 .actionCall {
      margin-bottom: 20px;
 
      font-weight: 600;
-     font-size: 1.25rem;
+     font-size: 1rem;
 }
 
 .actionButton {

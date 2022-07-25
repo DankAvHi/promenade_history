@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { ButtonPropsType } from "../IButton";
+import { ButtonProps } from "../Button.d";
 import styles from "./Button.module.css";
 
-const Button = ({ className, onClick, type = "button", text, image, href = "", disabled }: ButtonPropsType) => {
+const Button = ({ className, onClick, type = "button", text, image, href = "", disabled }: ButtonProps) => {
      if (type === "link") {
           return disabled ? (
                <button className={`${styles.Button} ${className}`} disabled={disabled}>

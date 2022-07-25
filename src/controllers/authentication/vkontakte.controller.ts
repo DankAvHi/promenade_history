@@ -1,6 +1,5 @@
 import { RequestHandler } from "express";
 import requestServerError from "../../errors/requestServerError/requestServerError.error";
-import randomIdGenerator from "../../functions/authentication/userIdGenerator.function";
 import { JWT_SECRET } from "../../setup/setupConfig";
 import prisma from "../../setup/setupPrismaConnection";
 
@@ -10,22 +9,31 @@ const vkontakteController: RequestHandler = async (req, res, next) => {
                throw new Error(`\n⛔[ERROR] JWT_SECRT doesn't provided in .env file\n`);
           }
           if (!req.user) {
-               throw new Error(`\n⛔[ERROR] request doesnt return user or user havent email\n`);
+               throw new Error(`\n⛔[ERROR] request doesnt return user\n`);
           }
 
           const reqUser = req.user;
 
           const isUserExisted = !!(await prisma.user.findUnique({ where: { vkid: reqUser.id } }));
           if (isUserExisted) {
+               await prisma.user.update({
+                    where: {
+                         vkid: reqUser.id,
+                    },
+                    data: {
+                         name: reqUser.displayName,
+                         image: reqUser.photos ? reqUser.photos[0].value : null,
+                    },
+               });
                return res.redirect("/");
           }
 
-          const iduser: number = await randomIdGenerator();
           await prisma.user.create({
                data: {
-                    iduser: iduser,
+                    iduser: reqUser.id,
                     vkid: reqUser.id,
                     name: reqUser.displayName,
+                    image: reqUser.photos ? reqUser.photos[0].value : null,
                },
           });
           res.redirect("/");

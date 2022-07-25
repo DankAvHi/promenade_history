@@ -1,12 +1,12 @@
+import { HeadingProps } from "../Heading.d";
 import Heading from "../Heading/Heading";
-import { HeadingPropsType } from "../IHeading";
 import styles from "./SectionHeading.module.css";
 
-type SectionHeadingPropsType = HeadingPropsType & {
-     fontSize?: 4.625 | 6;
+type SectionHeadingProps = HeadingProps & {
+     fontSize?: 4 | 5.75;
 };
 
-const SectionHeading = ({ children, headingLevel = "h2", className, fontSize = 4.625 }: SectionHeadingPropsType) => {
+const SectionHeading = ({ children, headingLevel = "h2", className, fontSize = 4 }: SectionHeadingProps) => {
      return (
           <Heading
                fontWeight={800}

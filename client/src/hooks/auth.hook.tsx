@@ -3,36 +3,50 @@ import { api } from "../Api/index.api";
 
 export const useAuth = () => {
      const { verify, error } = api().useVerifyUserApi();
-     const [userID, setUserID] = useState<number | null>(null);
+     const [isAuthenticated, setIsAuthenticated] = useState<boolean | "unknow">("unknow");
 
      const login = useCallback((id: number) => {
-          setUserID(id);
+          setIsAuthenticated(true);
      }, []);
 
      const logout = useCallback(() => {
-          setUserID(null);
+          setIsAuthenticated(false);
      }, []);
 
      useEffect(() => {
-          const verifyToken = async () => {
+          const isUserHasAuthenticated = window.localStorage.getItem("isUserHasAuthenticated") === "true";
+
+          const verifyUser = async () => {
                try {
                     const data = await verify();
 
                     if (data.succes) {
                          login(data.vkid);
+                         return true;
                     } else {
+                         localStorage.setItem("isUserHasAuthenticated", "false");
                          logout();
+                         return false;
                     }
                } catch (e) {
-                    console.error(e);
+                    localStorage.setItem("isUserHasAuthenticated", "false");
                     logout();
+                    return false;
                }
           };
 
-          verifyToken();
+          if (isUserHasAuthenticated) {
+               verifyUser().then((succes) => {
+                    if (succes) {
+                         setInterval(() => {
+                              verifyUser();
+                         }, 60 * 5 * 1000);
+                    }
+               });
+          } else {
+               setIsAuthenticated(false);
+          }
+     }, [login, logout, verify]);
 
-          // eslint-disable-next-line
-     }, []);
-
-     return { login, logout, userID, error };
+     return { login, logout, isAuthenticated, error };
 };

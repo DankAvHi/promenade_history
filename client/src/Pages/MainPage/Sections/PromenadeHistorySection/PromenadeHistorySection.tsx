@@ -5,7 +5,7 @@ import PromenadeHistorySectionText from "./PromenadeHistorySection.text";
 
 const PromenadeHistorySection = () => {
      return (
-          <div className={styles.PromenadeHistorySection}>
+          <div id="promenadeHistory" className={styles.PromenadeHistorySection}>
                <div className={styles.container}>
                     <SectionHeading headingLevel="h1" className={styles.heading}>
                          {PromenadeHistorySectionText.heading}

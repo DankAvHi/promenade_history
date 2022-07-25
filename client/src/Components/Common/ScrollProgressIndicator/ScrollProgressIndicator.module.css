@@ -1,0 +1,11 @@
+.ScrollProgressIndicator {
+     position: fixed;
+     top: 0;
+     left: 0;
+
+     border-radius: 5px;
+
+     height: 5px;
+
+     background-color: var(--crimson-90);
+}
