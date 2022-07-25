@@ -33,5 +33,7 @@ module.exports = {
           }),
      ],
 
-     // externals: [nodeExternals()],
+     externals: {
+          sqlite3: "commonjs sqlite3",
+     },
 };
