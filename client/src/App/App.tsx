@@ -5,6 +5,7 @@ import Navigation from "../Components/Common/Navigation/Navigation";
 import TopPopup from "../Components/Common/TopPopup/TopPopup";
 import { TopPopupArray } from "../Components/Common/TopPopup/TopPopup.d";
 import { useAuth } from "../hooks/auth.hook";
+import useScrollLock from "../hooks/scrollLock";
 import SiteSections from "../types/Navigation/siteSections.type";
 import styles from "./App.module.css";
 import { useRoutes } from "./App.routes";
@@ -13,10 +14,28 @@ import AuthContext from "./contexts/AuthContext";
 
 function App() {
      const { login, logout, isAuthenticated } = useAuth();
+     const { lockScroll, unlockScroll } = useScrollLock();
      const location = useLocation();
 
+     const [appTopPopupMesages, setAppTopPopupMesages] = useState<TopPopupArray>([]);
+     const [loading, setLoading] = useState<boolean>(true);
+
      useEffect(() => {
-          if (location.hash) {
+          lockScroll();
+          const onPageLoad = () => {
+               setLoading(false);
+               unlockScroll();
+          };
+          if (document.readyState === "complete") {
+               onPageLoad();
+          } else {
+               window.addEventListener("load", onPageLoad);
+               return () => window.removeEventListener("load", onPageLoad);
+          }
+     }, []);
+
+     useEffect(() => {
+          if (location.hash && !loading) {
                let elem = document.getElementById(location.hash.slice(1));
                if (elem) {
                     elem.scrollIntoView({ behavior: "smooth" });
@@ -24,9 +43,7 @@ function App() {
           } else {
                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
           }
-     }, [location]);
-
-     const [appTopPopupMesages, setAppTopPopupMesages] = useState<TopPopupArray>([]);
+     }, [location, loading]);
 
      const routes = useRoutes(isAuthenticated === true);
 
@@ -52,6 +69,7 @@ function App() {
                            ))
                          : null}
                     <div className={styles.App}>
+                         {loading ? <Loader /> : null}
                          {isAuthenticated === "unknow" ? (
                               <Loader />
                          ) : (

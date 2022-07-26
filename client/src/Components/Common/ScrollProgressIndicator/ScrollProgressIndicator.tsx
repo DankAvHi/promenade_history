@@ -1,4 +1,4 @@
-import useScrollProgress from "../../../hooks/scrollProgress.hook";
+import useScrollProgress from "./scrollProgress.hook";
 import styles from "./ScrollProgressIndicator.module.css";
 
 const ScrollProgressIndicator = () => {
