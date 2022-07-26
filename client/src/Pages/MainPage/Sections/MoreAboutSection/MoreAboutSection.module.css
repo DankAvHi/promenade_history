@@ -30,10 +30,21 @@
 .heading {
      margin-bottom: 55px;
 }
-
+@media screen and (max-width: 545px) {
+     .heading {
+          margin-bottom: 20px;
+          font-size: 2rem;
+     }
+}
 .content {
      max-width: 1180px;
 
      font-weight: 500;
      font-size: 2rem;
+}
+@media screen and (max-width: 545px) {
+     .content {
+          font-size: 1.25rem;
+          line-height: 1.25;
+     }
 }

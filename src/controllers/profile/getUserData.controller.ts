@@ -11,7 +11,7 @@ const getUserDataController: RequestHandler = async (req, res, next) => {
 
           const user = await prisma.user.findUnique({
                where: {
-                    vkid: req.user.id,
+                    vkid: req.user.iduser,
                },
           });
           if (!user) {

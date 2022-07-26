@@ -27,7 +27,7 @@ const ProfilePage = () => {
      return (
           <div className={styles.ProfilePage}>
                <div className={styles.container}>
-                    <Heading className={styles.heading} headingLevel="h2" fontSize={4} fontWeight={700}>
+                    <Heading className={styles.heading} headingLevel="h2">
                          {ProfilePageText.heading}
                     </Heading>
 

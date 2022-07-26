@@ -7,7 +7,7 @@ const verifyUserController: RequestHandler = async (req, res, next) => {
                return res.status(403).json({ error: "Unauth" });
           }
 
-          res.json({ succes: true, vkid: req.user.id });
+          res.json({ succes: true, vkid: req.user.iduser });
      } catch (e) {
           requestServerError(e, res);
      }

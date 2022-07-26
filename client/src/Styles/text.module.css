@@ -8,3 +8,19 @@
 .crimson90 {
      color: var(--crimson-90);
 }
+
+.headingFontSize {
+     font-size: 2.25rem;
+}
+.headingFontWeight {
+     font-weight: 600;
+}
+.headingTextAlign {
+     text-align: start;
+}
+.startTextAlign {
+     text-align: start;
+}
+.centerTextAlign {
+     text-align: center;
+}

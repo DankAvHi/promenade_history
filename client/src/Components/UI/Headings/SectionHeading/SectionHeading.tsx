@@ -1,18 +1,20 @@
+import textStyles from "../../../../Styles/text.module.css";
 import { HeadingProps } from "../Heading.d";
 import Heading from "../Heading/Heading";
 import styles from "./SectionHeading.module.css";
 
 type SectionHeadingProps = HeadingProps & {
-     fontSize?: 4 | 5.75;
+     type?: "big" | "default";
 };
 
-const SectionHeading = ({ children, headingLevel = "h2", className, fontSize = 4 }: SectionHeadingProps) => {
+const SectionHeading = ({ children, headingLevel = "h2", className, type = "default" }: SectionHeadingProps) => {
      return (
           <Heading
-               fontWeight={800}
+               fontSizeClassName={type === "default" ? styles.SectionHeading : styles.SectionHeading_big}
+               fontWeightClassName={textStyles.sectionHeadingFontWeight}
+               textAlignClassName={textStyles.centerTextAlign}
                headingLevel={headingLevel}
-               fontSize={fontSize}
-               className={`${styles.SectionHeading} ${className}`}
+               className={`${className} ${styles.SectionHeading} `}
           >
                {children}
           </Heading>

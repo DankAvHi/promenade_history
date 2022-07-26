@@ -10,9 +10,7 @@ const PushkinCardSection = () => {
      return (
           <div id="pushkinCard" className={styles.PushkinCardSection}>
                <div className={styles.container}>
-                    <SectionHeading fontSize={5.75} className={styles.heading}>
-                         {PushkinCardSectionText.heading}
-                    </SectionHeading>
+                    <SectionHeading className={styles.heading}>{PushkinCardSectionText.heading}</SectionHeading>
 
                     <p className={styles.subHeading}>{PushkinCardSectionText.subHeading}</p>
 

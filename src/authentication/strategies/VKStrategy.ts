@@ -1,6 +1,7 @@
 import passport from "passport";
 import { Strategy } from "passport-vkontakte-no-pkginfo";
 import { HOME_PAGE_ROUTE, URL, VK_APP_ID, VK_CALLBACK_URL, VK_SECURE_KEY } from "../../setup/setupConfig";
+import prisma from "../../setup/setupPrismaConnection";
 
 const VKStrategy = () => {
      if (!VK_APP_ID || !VK_SECURE_KEY || !VK_CALLBACK_URL || !URL) {
@@ -20,17 +21,46 @@ const VKStrategy = () => {
                },
 
                async (accessToken, refreshToken, params, profile, done) => {
-                    return done(null, profile);
+                    if (!profile) {
+                         return done(null, false);
+                    }
+
+                    const isUserExisted = !!(await prisma.user.findUnique({ where: { vkid: profile.id } }));
+                    if (isUserExisted) {
+                         const user = await prisma.user.update({
+                              where: {
+                                   vkid: profile.id,
+                              },
+                              data: {
+                                   name: profile.displayName,
+                                   image: profile.photos ? profile.photos[0].value : null,
+                              },
+                         });
+
+                         return done(null, user);
+                    } else {
+                         const user = await prisma.user.create({
+                              data: {
+                                   iduser: profile.id,
+                                   vkid: profile.id,
+                                   name: profile.displayName,
+                                   image: profile.photos ? profile.photos[0].value : null,
+                              },
+                         });
+                         return done(null, user);
+                    }
                }
           )
      );
 
      passport.serializeUser((user, done) => {
-          done(null, user);
+          done(null, user.iduser);
      });
 
-     passport.deserializeUser((user: Express.User, done) => {
-          done(null, user);
+     passport.deserializeUser((iduser: Express.User["iduser"], done) => {
+          prisma.user.findUnique({ where: { iduser: iduser } }).then((user) => {
+               done(null, user);
+          });
      });
 };
 

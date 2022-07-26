@@ -15,6 +15,10 @@
 
 .heading {
      margin-bottom: 100px;
+
+     font-size: 4rem;
+     font-weight: 700;
+     text-align: center;
 }
 
 .welcome {

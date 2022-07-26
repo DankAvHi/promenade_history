@@ -1,2 +1,26 @@
 .SectionHeading {
+     font-size: 4rem;
+     font-weight: 800;
+}
+.SectionHeading_big {
+     font-size: 5.75rem;
+     font-weight: 800;
+}
+
+@media screen and (max-width: 545px) {
+     .SectionHeading {
+          font-size: 3rem;
+     }
+     .SectionHeading_big {
+          font-size: 4rem;
+     }
+}
+
+@media screen and (max-width: 360px) {
+     .SectionHeading {
+          font-size: 2rem;
+     }
+     .SectionHeading_big {
+          font-size: 3rem;
+     }
 }

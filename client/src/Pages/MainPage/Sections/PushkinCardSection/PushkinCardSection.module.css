@@ -5,7 +5,7 @@
 
      padding: var(--section-padding);
      padding-top: 140px;
-     padding-bottom: 195px;
+     padding-bottom: 50px;
 
      background: var(--pushkin-card-background);
 }
@@ -22,8 +22,20 @@
 
 .heading {
      margin-bottom: 90px;
-}
 
+     font-size: 5.75rem;
+}
+@media screen and (max-width: 768px) {
+     .heading {
+          font-size: 3rem;
+     }
+}
+@media screen and (max-width: 545px) {
+     .heading {
+          font-size: 2rem;
+          margin-bottom: 50px;
+     }
+}
 .subHeading {
      margin-bottom: 114px;
 
@@ -32,7 +44,11 @@
      font-weight: 500;
      font-size: 2.25rem;
 }
-
+@media screen and (max-width: 545px) {
+     .subHeading {
+          font-size: 1.5rem;
+     }
+}
 .sectionImage {
      margin-bottom: 160px;
 
@@ -50,12 +66,21 @@
      justify-content: space-between;
      align-items: center;
 }
-
+@media screen and (max-width: 768px) {
+     .steps {
+          flex-direction: column;
+     }
+}
 .step {
      display: flex;
      flex-direction: column;
      align-items: center;
      justify-content: center;
+}
+@media screen and (max-width: 768px) {
+     .step {
+          margin-bottom: 50px;
+     }
 }
 .stepImage {
      margin-bottom: 8px;

@@ -24,6 +24,11 @@
 .heading {
      margin-bottom: 140px;
 }
+@media screen and (max-width: 545px) {
+     .heading {
+          margin-bottom: 50px;
+     }
+}
 .locationInfo {
      margin-bottom: 130px;
 
@@ -39,9 +44,19 @@
           flex-direction: column;
      }
 }
+@media screen and (max-width: 545px) {
+     .locationInfo {
+          margin-bottom: 50px;
+     }
+}
 
 .locationTextsContainer {
      max-height: 460px;
+}
+@media screen and (max-width: 768px) {
+     .locationTextsContainer {
+          max-height: max-content;
+     }
 }
 .locationImage {
      margin-right: 10px;
@@ -114,4 +129,11 @@
      max-width: 1180px;
 
      font-size: 1.75rem;
+}
+@media screen and (max-width: 545px) {
+     .registryInfo,
+     .serviceAcces {
+          font-size: 1rem;
+          margin-bottom: 50px;
+     }
 }

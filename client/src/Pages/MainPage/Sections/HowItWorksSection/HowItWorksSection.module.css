@@ -24,7 +24,11 @@
 .heading {
      margin-bottom: 100px;
 }
-
+@media screen and (max-width: 545px) {
+     .heading {
+          margin-bottom: 20px;
+     }
+}
 .list {
      margin-bottom: 30px;
 
@@ -40,6 +44,11 @@
      display: flex;
      align-items: center;
 }
+@media screen and (max-width: 768px) {
+     .item {
+          flex-direction: column;
+     }
+}
 .number {
      width: 300px;
 
@@ -54,17 +63,37 @@
           font-size: 18rem;
      }
 }
+@media screen and (max-width: 768px) {
+     .number {
+          width: auto;
+
+          font-size: 10rem;
+          line-height: normal;
+     }
+}
 .textContainer {
      max-width: 974px;
      width: 100%;
 }
 .contentHeading {
      margin-bottom: 36px;
+
+     font-size: 2.15rem;
+     font-weight: 700;
+}
+@media screen and (max-width: 545px) {
+     .contentHeading {
+          font-size: 1.5rem;
+     }
 }
 .text {
      font-size: 1.75rem;
 }
-
+@media screen and (max-width: 545px) {
+     .text {
+          font-size: 1.25rem;
+     }
+}
 .actionCall {
      margin-bottom: 20px;
 

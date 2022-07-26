@@ -1,6 +1,7 @@
 import Button from "../../../../Components/UI/Buttons/Button/Button";
 import Heading from "../../../../Components/UI/Headings/Heading/Heading";
 import SectionHeading from "../../../../Components/UI/Headings/SectionHeading/SectionHeading";
+import textStyles from "../../../../Styles/text.module.css";
 import styles from "./HowItWorksSection.module.css";
 import { actionCallText, actionText, headingText, itemsTexts } from "./HowItWorksSection.text";
 
@@ -18,9 +19,9 @@ const HowItWorksSection = () => {
                                         <div className={styles.textContainer}>
                                              <Heading
                                                   className={styles.contentHeading}
-                                                  align="start"
-                                                  fontSize={2.15}
-                                                  fontWeight={700}
+                                                  textAlignClassName={textStyles.startTextAlign}
+                                                  fontSizeClassName={textStyles.howItWorksBlockHeadingFontSize}
+                                                  fontWeightClassName={textStyles.howItWorksBlockHeadingFontWeight}
                                              >
                                                   {item.heading}
                                              </Heading>

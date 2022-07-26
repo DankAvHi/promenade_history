@@ -19,9 +19,25 @@
           padding-top: 140px;
      }
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 1280px) {
+     .Header {
+          height: auto;
+     }
+}
+@media screen and (max-width: 1080px) {
      .Header {
           padding-top: 20px;
+     }
+}
+@media screen and (max-width: 545px) {
+     .Header {
+          padding: 20px;
+     }
+}
+@media screen and (max-width: 360px) {
+     .Header {
+          padding: 0px;
      }
 }
 .container {
@@ -52,6 +68,7 @@
           align-items: flex-end;
      }
 }
+
 @media screen and (max-width: 768px) {
      .container {
           align-items: flex-start;
@@ -81,9 +98,7 @@
 
 @media screen and (max-width: 1280px) {
      .logoImage {
-          position: absolute;
-          top: 0%;
-          transform: translate(0, -0%);
+          display: none;
      }
 }
 @media screen and (max-width: 768px) {
@@ -104,7 +119,11 @@
 
      text-align: end;
 }
-
+@media screen and (max-width: 1280px) {
+     .content {
+          max-width: 100%;
+     }
+}
 .accientText {
      margin-bottom: 35px;
 
@@ -117,17 +136,38 @@
      font-weight: 500;
      font-size: 2.25rem;
 }
+@media screen and (max-width: 545px) {
+     .firstSubText {
+          font-size: 1.5rem;
+     }
+}
 .heroText {
      margin-bottom: 22px;
 
      font-weight: 800;
      font-size: 4rem;
 }
+@media screen and (max-width: 1280px) {
+     .heroText {
+          font-size: 3rem;
+     }
+}
+@media screen and (max-width: 545px) {
+     .heroText {
+          font-size: 2rem;
+     }
+}
 .secondSubText {
      margin-bottom: 200px;
 
      font-weight: 500;
      font-size: 2.25rem;
+}
+@media screen and (max-width: 545px) {
+     .secondSubText {
+          margin-bottom: 20px;
+          font-size: 1.5rem;
+     }
 }
 .button {
      margin-bottom: 28px;
@@ -142,6 +182,13 @@
 
      font-size: 1.75rem;
      font-weight: 600;
+}
+@media screen and (max-width: 545px) {
+     .button {
+          padding: 15px;
+
+          font-size: 1.5rem;
+     }
 }
 .buttonSubText {
      text-align: center;

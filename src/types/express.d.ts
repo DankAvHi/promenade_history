@@ -1,7 +1,7 @@
-import { Profile } from "passport-vkontakte-no-pkginfo";
+import { user } from "@prisma/client";
 
 declare global {
      namespace Express {
-          interface User extends Profile, User {}
+          interface User extends user, User {}
      }
 }
