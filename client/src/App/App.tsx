@@ -32,7 +32,7 @@ function App() {
                window.addEventListener("load", onPageLoad);
                return () => window.removeEventListener("load", onPageLoad);
           }
-     }, []);
+     }, [lockScroll, unlockScroll]);
 
      useEffect(() => {
           if (location.hash && !loading) {

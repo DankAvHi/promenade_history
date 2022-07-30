@@ -37,6 +37,15 @@
 }
 
 .userName {
+     margin-bottom: 25px;
+
      font-weight: 700;
      font-size: 3rem;
+}
+.logout {
+     border-radius: 40px;
+
+     padding: 15px 30px;
+
+     background-color: var(--crimson-90);
 }

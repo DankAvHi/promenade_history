@@ -16,6 +16,7 @@ export default function Header() {
                          <p className={styles.secondSubText}>{HeaderText.secondSubText}</p>
 
                          <Button text={HeaderText.buttonText} className={styles.button} />
+
                          <p className={styles.buttonSubText}>{HeaderText.buttonSubText}</p>
                     </div>
                </div>

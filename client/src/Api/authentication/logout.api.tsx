@@ -1,9 +1,9 @@
 import { useCallback, useEffect } from "react";
 import useTopPopup from "../../Components/Common/TopPopup/TopPopup.hook";
-import { AUTH_VERIFYUSER_API } from "../../shared/routes/api/api.shared";
+import { AUTH_LOGOUT_API } from "../../shared/routes/api/api.shared";
 import { useHttp } from "./../http.hook";
 
-export default function useVerifyUserApi() {
+export default function useLogoutApi() {
      const { request, error, clearError } = useHttp();
      const { showTopPopup } = useTopPopup();
 
@@ -13,11 +13,11 @@ export default function useVerifyUserApi() {
           }
      }, [error, clearError, showTopPopup]);
 
-     const verify = useCallback(async () => {
-          const data = await request({ url: AUTH_VERIFYUSER_API, method: "GET" });
+     const logout = useCallback(async () => {
+          const data = await request({ url: AUTH_LOGOUT_API, method: "DELETE" });
 
           return data;
      }, [request]);
 
-     return { verify, error };
+     return { logout, error };
 }

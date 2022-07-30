@@ -3,6 +3,6 @@ import logoutController from "../../controllers/authentication/logout.controller
 
 const logoutRouter = Router();
 
-logoutRouter.get("/", logoutController);
+logoutRouter.delete("/", logoutController);
 
 export default logoutRouter;

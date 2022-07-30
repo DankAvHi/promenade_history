@@ -5,6 +5,7 @@ import MoreAboutSection from "./Sections/MoreAboutSection/MoreAboutSection";
 import WhatIsSection from "./Sections/PromenadeHistorySection/PromenadeHistorySection";
 import PushkinCardSection from "./Sections/PushkinCardSection/PushkinCardSection";
 import StartPointSection from "./Sections/StartPointSection/StartPointSection";
+import TicketSection from "./Sections/TicketSection/TicketSection";
 import WhatIsComboSection from "./Sections/WhatIsComboSection/WhatIsComboSection";
 
 export default function MainPage() {
@@ -18,6 +19,7 @@ export default function MainPage() {
                     <MoreAboutSection />
                     <WhatIsComboSection />
                     <PushkinCardSection />
+                    <TicketSection />
                </main>
           </div>
      );

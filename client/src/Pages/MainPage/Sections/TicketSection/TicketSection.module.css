@@ -1,0 +1,211 @@
+.TicketSection {
+     border-radius: var(--section-boder-radius);
+
+     padding: var(--section-padding);
+     padding-bottom: 104px;
+     padding-top: 148px;
+
+     background: var(--ticket-background);
+}
+@media screen and (max-width: 640px) {
+     .TicketSection {
+          padding-top: 80px;
+     }
+}
+.container {
+     margin: 0 auto;
+
+     max-width: 926px;
+
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+}
+
+.heading {
+     margin-bottom: 128px;
+}
+@media screen and (max-width: 640px) {
+     .heading {
+          margin-bottom: 50px;
+     }
+}
+.tickets {
+     display: flex;
+     flex-direction: column;
+}
+.comboTicket {
+     margin-bottom: 15px;
+
+     border-radius: 40px;
+
+     padding: 25px 36px;
+
+     max-width: 926px;
+     width: 100%;
+
+     background: var(--combo-ticket-background);
+
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+}
+@media screen and (max-width: 425px) {
+     .comboTicket {
+          padding: 20px;
+
+          align-items: center;
+     }
+}
+.comboHeading {
+     margin-bottom: 25px;
+
+     font-family: "Stretch Pro";
+     font-weight: 400;
+     font-size: 4.625rem;
+     text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+     .comboHeading {
+          font-size: 3.5rem;
+     }
+}
+
+@media screen and (max-width: 768px) {
+     .comboHeading {
+          font-size: 2.5rem;
+     }
+}
+.comboDescription {
+     width: 100%;
+
+     display: flex;
+     align-items: flex-start;
+}
+@media screen and (max-width: 960px) {
+     .comboDescription {
+          margin-bottom: 15px;
+     }
+}
+@media screen and (max-width: 640px) {
+     .comboDescription {
+          flex-direction: column;
+          align-items: flex-end;
+     }
+}
+@media screen and (max-width: 425px) {
+     .comboDescription {
+          align-items: center;
+     }
+}
+.comboDescriptionText {
+     margin-right: 67px;
+
+     max-width: 550px;
+
+     font-weight: 600;
+     font-size: 2rem;
+}
+
+@media screen and (max-width: 960px) {
+     .comboDescriptionText {
+          font-size: 1.5rem;
+     }
+}
+@media screen and (max-width: 640px) {
+     .comboDescriptionText {
+          margin-right: 0;
+     }
+}
+@media screen and (max-width: 425px) {
+     .comboDescriptionText {
+          margin-bottom: 15px;
+
+          font-size: 1.25rem;
+     }
+}
+
+@media screen and (max-width: 960px) {
+     .comboImage {
+          width: 100px;
+     }
+}
+.comboPrice {
+     padding: 5px 16px;
+
+     border-radius: 40px;
+     border: 1px solid var(--purpule-80);
+
+     background-color: var(--purpule-50);
+
+     font-weight: 500;
+     font-size: 1.875rem;
+}
+@media screen and (max-width: 640px) {
+     .comboPrice {
+          font-size: 1.5rem;
+     }
+}
+@media screen and (max-width: 425px) {
+     .comboPrice {
+          font-size: 1.25rem;
+     }
+}
+.beloraTicket {
+     border: var(--blue-50) 1px solid;
+     border-radius: 40px;
+
+     padding: 18px 30px;
+
+     max-width: 463px;
+     width: 100%;
+
+     background-color: var(--blue-10);
+
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+}
+@media screen and (max-width: 450px) {
+     .beloraTicket {
+          align-items: center;
+     }
+}
+.beloraHeading {
+     margin-bottom: 10px;
+
+     font-weight: 600;
+     font-size: 3rem;
+     text-align: center;
+}
+@media screen and (max-width: 450px) {
+     .beloraHeading {
+          font-size: 1.5rem;
+     }
+}
+.beloraDescription {
+     margin-bottom: 5px;
+}
+@media screen and (max-width: 450px) {
+     .beloraDescription {
+          margin-bottom: 15px;
+     }
+}
+.beloraDescriptionText {
+     font-size: 1.5rem;
+}
+@media screen and (max-width: 450px) {
+     .beloraDescriptionText {
+          font-size: 1rem;
+     }
+}
+.beloraPrice {
+     border: var(--blue-45) solid 1px;
+     border-radius: 40px;
+
+     padding: 5px 8px;
+
+     font-weight: 500;
+     font-size: 1.25rem;
+}

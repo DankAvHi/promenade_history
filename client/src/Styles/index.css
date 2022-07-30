@@ -1,4 +1,5 @@
 @import url("../Assets/fonts/Montserrat/static/stylesheet.css");
+@import url("../Assets/fonts/StretchPro/stylesheet.css");
 @import url(./variables.css);
 * {
      scroll-behavior: smooth;
@@ -27,6 +28,8 @@ button {
 span,
 p {
      font-size: inherit;
+     font-family: inherit;
+     font-weight: inherit;
 }
 html,
 body,

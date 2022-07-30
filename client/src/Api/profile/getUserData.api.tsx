@@ -15,11 +15,7 @@ export default function useGetUserDataApi() {
      }, [error, clearError, showTopPopup]);
 
      const getUserData = useCallback(async () => {
-          const headers: Headers = new Headers({
-               "Content-Type": "application/json",
-          });
-
-          const data: UserResponse = await request(GET_USER_DATA_API, "GET", null, headers, true);
+          const data: UserResponse = await request({ url: GET_USER_DATA_API, method: "GET" });
 
           return data;
      }, [request]);

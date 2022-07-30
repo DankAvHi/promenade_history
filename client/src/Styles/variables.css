@@ -12,6 +12,7 @@
 
      --white-90: white;
      --black-00: black;
+     --black-transparent-00: rgba(0, 0, 0, 0.507);
      --blue-00: #000021;
      --blue-01: #000214;
      --blue-02: #000218;
@@ -22,6 +23,9 @@
      --blue-07: #101134;
      --blue-08: #05003f;
      --blue-09: #02004d;
+     --blue-10: #00104f;
+     --blue-40: #21029c;
+     --blue-45: #0019ff;
      --blue-50: #001aff;
      --purpule-00: #0e001f;
      --purpule-01: #100020;
@@ -32,7 +36,8 @@
      --purpule-70: #8f00ff;
      --purpule-80: #ad00ff;
      --purpule-90: #fa00ff;
-     --orange-50: #e9b85e;
+     --orange-50: #ff7a00;
+     --crimson-20: #970076;
      --crimson-90: #e2005f;
      --teal-70: #00afaf;
 
@@ -56,12 +61,20 @@
      --more-about-background: linear-gradient(180deg, var(--purpule-01) 0%, var(--purpule-02) 22.07%);
      --history-combo-background: linear-gradient(180deg, var(--blue-03) 0%, var(--blue-06) 22.07%);
      --pushkin-card-background: var(--black-00);
+     --ticket-background: linear-gradient(180deg, var(--blue-03) 0%, var(--blue-04) 22.07%);
+     --combo-ticket-background: linear-gradient(
+          80.15deg,
+          var(--orange-50) 0%,
+          var(--crimson-20) 30.95%,
+          var(--blue-40) 91.28%
+     );
      --profile-page-backround: linear-gradient(180deg, var(--blue-08) 0%, var(--purpule-03) 75%);
 
      --toppopup-warning-background-color: var(--orange-50);
      --toppopup-danger-background-color: var(--crimson-90);
      --toppopup-succeful-background-color: var(--teal-70);
      --toppopup-info-background-color: var(--blue-50);
+     --modal-background: var(--black-transparent-00);
 
      --section-padding: 0 30px;
      --section-padding-top: 76px;

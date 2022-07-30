@@ -6,7 +6,7 @@ const logoutController: RequestHandler = async (req, res, next) => {
           req.logout((err) => {
                res.clearCookie("connect.sid");
                req.session.destroy((err) => {
-                    res.redirect("/");
+                    res.json({ succes: true });
                });
           });
      } catch (e) {

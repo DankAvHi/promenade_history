@@ -12,12 +12,14 @@ import VKStrategy from "./src/authentication/strategies/VKStrategy";
 import { API_ROUTE } from "./shared/routes/api/api.shared";
 import JWTStrategy from "./src/authentication/strategies/JWTStrategy";
 import { COOKIE_OPTIONS, PORT, SESSION_SECRET, STATIC_PATH } from "./src/setup/setupConfig";
+import { initializePrisma } from "./src/setup/setupPrismaConnection";
 
 if (!SESSION_SECRET) {
      throw new Error(`\n⛔[ERROR] SESSION_SECRET is not provided in .env file\n`);
 }
 
 const app = express();
+initializePrisma();
 const SQLiteStore = ConnectSQLite3(expressSession);
 const store = new SQLiteStore({ table: "sessions", db: "sessions.db" });
 

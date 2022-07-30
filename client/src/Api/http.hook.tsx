@@ -1,23 +1,25 @@
 import { useCallback, useState } from "react";
-import { IHttpHook } from "./IHttp.hook";
+import { HttpHookErrorStatusType, HttpHookErrorType, HttpHookLoadingType, HttpHookPropsType } from "./IHttp.hook";
 
 export const useHttp = () => {
-     const [loading, setLoading] = useState<IHttpHook["loading"]>(false);
-     const [error, setError] = useState<IHttpHook["error"]>(null);
+     const [loading, setLoading] = useState<HttpHookLoadingType>(false);
+     const [error, setError] = useState<HttpHookErrorType>(null);
+     const [clientError, setClientError] = useState<HttpHookErrorType>(null);
+     const [errorStatus, setErrorStatus] = useState<HttpHookErrorStatusType>(null);
 
      const request = useCallback(
-          async (
-               url: IHttpHook["url"],
-               method: IHttpHook["method"] = "GET",
-               body?: IHttpHook["body"],
-               headers = {} as Headers,
-               sendCredentials: IHttpHook["sendCredentials"] = false,
-               isJSON: IHttpHook["isJSON"] = true,
-               waitingForJson: IHttpHook["waitingForJson"] = true
-          ) => {
+          async ({
+               url,
+               method = "GET",
+               body,
+               headers = new Headers(),
+               sendCredentials = false,
+               isJSON = true,
+               waitingForJson = true,
+          }: HttpHookPropsType) => {
                setLoading(true);
                try {
-                    if (body) {
+                    if (body && isJSON) {
                          body = JSON.stringify(body);
                          headers.set("Content-Type", "application/json");
                     }
@@ -31,7 +33,27 @@ export const useHttp = () => {
                     });
                     if (!response.ok) {
                          if (response.status) {
-                              throw new Error(response.statusText || "Что-то пошло не так");
+                              setErrorStatus(response.status);
+
+                              const contentType = response.headers.get("content-type");
+                              const errorData =
+                                   contentType && contentType.indexOf("application/json") !== -1
+                                        ? await response.json()
+                                        : await response.text();
+
+                              const error = errorData.error ? errorData.error : errorData;
+                              setClientError(() => {
+                                   if (errorData.error) {
+                                        return errorData.error;
+                                   }
+                                   switch (response.status) {
+                                        case 504:
+                                             return "Сервер не отвечает";
+                                        case 401:
+                                             return "Неверный запрос";
+                                   }
+                              });
+                              throw new Error(error || "Что-то пошло не так");
                          }
                          throw new Error("Что-то пошло не так");
                     }
@@ -49,7 +71,11 @@ export const useHttp = () => {
           []
      );
 
-     const clearError = useCallback(() => setError(null), []);
+     const clearError = useCallback(() => {
+          setError(null);
+          setErrorStatus(null);
+          setClientError(null);
+     }, []);
 
-     return { loading, request, error, clearError };
+     return { loading, request, error, clientError, errorStatus, clearError };
 };

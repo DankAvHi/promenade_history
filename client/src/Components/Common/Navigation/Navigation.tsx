@@ -2,12 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../../App/contexts/AuthContext";
 import useWindowSize from "../../../hooks/windowSize.hook";
-import { AUTH_LOGOUT_API, AUTH_VKONTAKTE_API } from "../../../shared/routes/api/api.shared";
+import { AUTH_VKONTAKTE_API } from "../../../shared/routes/api/api.shared";
 import SiteSections from "../../../types/Navigation/siteSections.type";
 import menuImage from "./Assets/Images/menuIcon.png";
 import vkImage from "./Assets/Images/vkIcon.png";
 import styles from "./Navigation.module.css";
-import { AUTH_WITH, PROFILE_LINK_TEXT, UNAUTH } from "./Navigation.text";
+import { AUTH_WITH, PROFILE_LINK_TEXT } from "./Navigation.text";
 
 type NavigationProps = {
      siteSections: SiteSections;
@@ -56,19 +56,21 @@ export default function Navigation({ siteSections }: NavigationProps) {
                          })}
                          {isAuthenticated ? (
                               <li className={styles.item}>
-                                   <Link className={styles.link} to={`/profile`}>
-                                        {PROFILE_LINK_TEXT}
+                                   <Link className={styles.vkLink} to={`/profile`}>
+                                        <span className={styles.vkText}>{PROFILE_LINK_TEXT}</span>
+                                        <img className={styles.vkImage} src={vkImage} alt="" />
                                    </Link>
                               </li>
-                         ) : null}
-                         <a
-                              href={isAuthenticated ? AUTH_LOGOUT_API : AUTH_VKONTAKTE_API}
-                              onClick={setIsUserHasAuthenticated(!isAuthenticated)}
-                              className={styles.vkLink}
-                         >
-                              <span className={styles.vkText}>{isAuthenticated ? UNAUTH : AUTH_WITH}</span>
-                              <img className={styles.vkImage} src={vkImage} alt="" />
-                         </a>
+                         ) : (
+                              <a
+                                   href={AUTH_VKONTAKTE_API}
+                                   onClick={setIsUserHasAuthenticated(!isAuthenticated)}
+                                   className={styles.vkLink}
+                              >
+                                   <span className={styles.vkText}>{AUTH_WITH}</span>
+                                   <img className={styles.vkImage} src={vkImage} alt="" />
+                              </a>
+                         )}
                     </ul>
 
                     <button onClick={toogleMenuButtonOnclickHandler} className={styles.button}>

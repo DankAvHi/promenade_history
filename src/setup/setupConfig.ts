@@ -3,10 +3,10 @@ import path from "path";
 dotenv.config();
 
 export const {
-     PORT = 8000,
+     PORT,
      NODE_ENV = "production",
-     CLIENT_URL = "http://localhost:3000",
-     URL = "http://localhost:8000",
+     CLIENT_URL,
+     URL,
      SESSION_SECRET,
      VK_APP_ID,
      VK_SECURE_KEY,
@@ -15,10 +15,30 @@ export const {
      JWT_SECRET,
      SESSION_EXPIRY,
      REFRESH_TOKEN_SECRET,
+     QTICKETS_API_TOKEN,
 } = process.env;
 
-if (!REFRESH_TOKEN_EXPIRY) {
-     throw new Error(`\n⛔[ERROR] REFRESH_TOKEN_EXPIRY is not provided in .env file\n`);
+const requeiredValues: { [key: string]: any } = {
+     PORT,
+     CLIENT_URL,
+     URL,
+     REFRESH_TOKEN_EXPIRY,
+     SESSION_SECRET,
+     VK_APP_ID,
+     VK_SECURE_KEY,
+     VK_CALLBACK_URL,
+     JWT_SECRET,
+     SESSION_EXPIRY,
+     REFRESH_TOKEN_SECRET,
+     QTICKETS_API_TOKEN,
+};
+
+for (let i = 0; i < Object.keys(requeiredValues).length; i++) {
+     const keys = Object.keys(requeiredValues);
+
+     if (!requeiredValues[keys[i]]) {
+          throw new Error(`❌ [server] ${keys[i]} not provided in .env file`);
+     }
 }
 
 export const STATIC_PATH =
@@ -32,6 +52,7 @@ export const COOKIE_OPTIONS = {
      // httpOnly: true,
      // secure: true,
      signed: true,
+     //@ts-ignore
      maxAge: eval(REFRESH_TOKEN_EXPIRY),
      // sameSite: "none",
 };
