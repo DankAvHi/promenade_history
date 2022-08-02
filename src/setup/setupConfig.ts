@@ -16,6 +16,7 @@ export const {
      SESSION_EXPIRY,
      REFRESH_TOKEN_SECRET,
      QTICKETS_API_TOKEN,
+     SECURE = "false",
 } = process.env;
 
 const requeiredValues: { [key: string]: any } = {
@@ -54,12 +55,12 @@ export const COOKIE_OPTIONS = {
      signed: true,
      //@ts-ignore
      maxAge: eval(REFRESH_TOKEN_EXPIRY),
-     // sameSite: "none",
+     sameSite: false,
 };
 
 export const NOT_EXPIRED_COOKIE_OPTIONS = {
      // httpOnly: true,
      // secure: true,
      signed: true,
-     // sameSite: "none",
+     sameSite: false,
 };

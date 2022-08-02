@@ -1,0 +1,7 @@
+.FlatLabel {
+     margin-bottom: 5px;
+
+     border-radius: var(--app-border-radius);
+
+     max-width: max-content;
+}

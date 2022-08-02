@@ -18,6 +18,7 @@ const VKStrategy = () => {
                     },
 
                     lang: "ru",
+                    scope: ["email"],
                },
 
                async (accessToken, refreshToken, params, profile, done) => {
@@ -25,8 +26,13 @@ const VKStrategy = () => {
                          return done(null, false);
                     }
 
-                    const isUserExisted = !!(await prisma.user.findUnique({ where: { vkid: profile.id } }));
-                    if (isUserExisted) {
+                    const existedUser = await prisma.user.findUnique({ where: { vkid: profile.id } });
+
+                    const isEmailExisted = profile.emails
+                         ? !!(await prisma.user.findFirst({ where: { email: profile.emails[0].value } }))
+                         : false;
+
+                    if (existedUser) {
                          const user = await prisma.user.update({
                               where: {
                                    vkid: profile.id,
@@ -45,6 +51,7 @@ const VKStrategy = () => {
                                    vkid: profile.id,
                                    name: profile.displayName,
                                    image: profile.photos ? profile.photos[0].value : null,
+                                   email: profile.emails && !isEmailExisted ? profile.emails[0].value : null,
                               },
                          });
                          return done(null, user);

@@ -1,2 +1,11 @@
 .Button {
+     max-width: max-content;
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.Button_max {
+     max-width: 100%;
+     width: 100%;
 }

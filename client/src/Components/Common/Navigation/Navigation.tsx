@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthContext from "../../../App/contexts/AuthContext";
+import AuthContext from "../../../contexts/AuthContext";
 import useWindowSize from "../../../hooks/windowSize.hook";
 import { AUTH_VKONTAKTE_API } from "../../../shared/routes/api/api.shared";
 import SiteSections from "../../../types/Navigation/siteSections.type";
@@ -19,6 +19,8 @@ export default function Navigation({ siteSections }: NavigationProps) {
 
      const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+     const containerStatusClasses = isMenuOpen ? styles.container_open : null;
+
      const toogleMenuButtonOnclickHandler = () => {
           setIsMenuOpen(!isMenuOpen);
      };
@@ -30,12 +32,8 @@ export default function Navigation({ siteSections }: NavigationProps) {
      };
 
      useEffect(() => {
-          if (size[0] > 768) {
-               setIsMenuOpen(false);
-          }
+          setIsMenuOpen(false);
      }, [size]);
-
-     const containerStatusClasses = isMenuOpen ? styles.container_open : null;
 
      return (
           <>

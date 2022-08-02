@@ -29,7 +29,6 @@ export const useAuth = () => {
                          return false;
                     }
                } catch (e) {
-                    localStorage.setItem("isUserHasAuthenticated", "false");
                     logout();
                     return false;
                }

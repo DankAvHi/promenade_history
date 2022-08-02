@@ -1,10 +1,20 @@
+import { useContext } from "react";
+import useTopPopup from "../../../../Components/Common/TopPopup/TopPopup.hook";
+import Button from "../../../../Components/UI/Buttons/Button/Button";
 import Heading from "../../../../Components/UI/Headings/Heading/Heading";
 import SectionHeading from "../../../../Components/UI/Headings/SectionHeading/SectionHeading";
+import AuthContext from "../../../../contexts/AuthContext";
 import emojiImage from "./Assets/emojiIcon.png";
 import styles from "./TicketSection.module.css";
 import TicketSectionText from "./TicketSection.text";
 
 const TicketSection = () => {
+     const { isAuthenticated } = useContext(AuthContext);
+     const { showTopPopup } = useTopPopup();
+
+     const notAuthHandler = () => {
+          showTopPopup({ message: { text: "Авторизуйтесь через ВК для покупки", duration: 5000, type: "info" } });
+     };
      return (
           <div id="tickets" className={styles.TicketSection}>
                <div className={styles.container}>
@@ -22,8 +32,21 @@ const TicketSection = () => {
                                    </p>
                                    <img className={styles.comboImage} src={emojiImage} alt="" />
                               </div>
-
-                              <button className={styles.comboPrice}>{TicketSectionText.historyCombo.price}</button>
+                              {isAuthenticated ? (
+                                   <Button
+                                        type="link"
+                                        href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                                        external={true}
+                                        className={styles.comboPrice}
+                                        text={TicketSectionText.historyCombo.price}
+                                   />
+                              ) : (
+                                   <Button
+                                        className={styles.comboPrice}
+                                        text={TicketSectionText.historyCombo.price}
+                                        onClick={notAuthHandler}
+                                   />
+                              )}
                          </div>
 
                          <div className={styles.beloraTicket}>
@@ -36,8 +59,21 @@ const TicketSection = () => {
                                         {TicketSectionText.historyBelora.description}
                                    </p>
                               </div>
-
-                              <button className={styles.beloraPrice}>{TicketSectionText.historyBelora.price}</button>
+                              {isAuthenticated ? (
+                                   <Button
+                                        type="link"
+                                        href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                                        external={true}
+                                        className={styles.beloraPrice}
+                                        text={TicketSectionText.historyBelora.price}
+                                   />
+                              ) : (
+                                   <Button
+                                        className={styles.beloraPrice}
+                                        text={TicketSectionText.historyBelora.price}
+                                        onClick={notAuthHandler}
+                                   />
+                              )}
                          </div>
                     </div>
                </div>

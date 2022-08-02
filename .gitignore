@@ -1,3 +1,7 @@
 node_modules
 dist
-.db
+session.db
+.rest
+.pem
+localhost-key.pem
+localhost.pem

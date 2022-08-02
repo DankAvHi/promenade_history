@@ -1,9 +1,19 @@
+import { useContext } from "react";
+import useTopPopup from "../../../../Components/Common/TopPopup/TopPopup.hook";
 import Button from "../../../../Components/UI/Buttons/Button/Button";
+import AuthContext from "../../../../contexts/AuthContext";
 import logoImage from "../../Assets/Images/PromenadeHistoryLogo.png";
 import styles from "./Header.module.css";
 import HeaderText from "./HeaderText";
 
 export default function Header() {
+     const { isAuthenticated } = useContext(AuthContext);
+     const { showTopPopup } = useTopPopup();
+
+     const notAuthHandler = () => {
+          showTopPopup({ message: { text: "Авторизуйтесь через ВК для покупки", duration: 5000, type: "info" } });
+     };
+
      return (
           <div className={styles.Header}>
                <div className={styles.container}>
@@ -15,7 +25,22 @@ export default function Header() {
                          <p className={styles.heroText}>{HeaderText.heroText}</p>
                          <p className={styles.secondSubText}>{HeaderText.secondSubText}</p>
 
-                         <Button text={HeaderText.buttonText} className={styles.button} />
+                         {isAuthenticated ? (
+                              <Button
+                                   size="max"
+                                   type="link"
+                                   href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                                   text={HeaderText.buttonText}
+                                   className={styles.button}
+                              />
+                         ) : (
+                              <Button
+                                   size="max"
+                                   onClick={notAuthHandler}
+                                   text={HeaderText.buttonText}
+                                   className={styles.button}
+                              />
+                         )}
 
                          <p className={styles.buttonSubText}>{HeaderText.buttonSubText}</p>
                     </div>

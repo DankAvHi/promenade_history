@@ -4,13 +4,13 @@ import Loader from "../Components/Common/loader/Loader";
 import Navigation from "../Components/Common/Navigation/Navigation";
 import TopPopup from "../Components/Common/TopPopup/TopPopup";
 import { TopPopupArray } from "../Components/Common/TopPopup/TopPopup.d";
+import AuthContext from "../contexts/AuthContext";
 import { useAuth } from "../hooks/auth.hook";
 import useScrollLock from "../hooks/scrollLock";
 import SiteSections from "../types/Navigation/siteSections.type";
 import styles from "./App.module.css";
 import { useRoutes } from "./App.routes";
 import AppContext from "./contexts/App.context";
-import AuthContext from "./contexts/AuthContext";
 
 function App() {
      const { login, logout, isAuthenticated } = useAuth();

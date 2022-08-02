@@ -20,7 +20,7 @@ const getUserDataController: RequestHandler = async (req, res, next) => {
 
           const response: UserResponse = {
                succes: true,
-               user: { name: user.name, image: user.image },
+               user: { name: user.name, image: user.image, email: user.email ? user.email : undefined },
           };
           res.json(response);
      } catch (e) {

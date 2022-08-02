@@ -11,6 +11,13 @@
                "url": "http://localhost:3000",
                "webRoot": "${workspaceFolder}/client"
           },
+          {
+               "name": "Client_secure",
+               "request": "launch",
+               "type": "chrome",
+               "url": "https://localhost:3000",
+               "webRoot": "${workspaceFolder}/client"
+          },
 
           {
                "type": "node",
@@ -27,6 +34,10 @@
      "compounds": [
           {
                "name": "Server/Client",
+               "configurations": ["Server", "Client"]
+          },
+          {
+               "name": "Server/Client_secure",
                "configurations": ["Server", "Client"]
           }
      ]
