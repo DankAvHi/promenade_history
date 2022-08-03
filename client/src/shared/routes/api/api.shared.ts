@@ -17,7 +17,7 @@ export const AUTH_VERIFYUSER_API = API_ROUTE + AUTH_ROUTE + AUTH_VERIFYUSER_ROUT
 export const PROFILE_ROUTE = "/profile";
 
 export const GET_USER_DATA_ROUTE = "/get-user-data";
-export const GET_USER_TICKETS_ROUTE = "/get-user-data";
+export const GET_USER_TICKETS_ROUTE = "/get-user-tickets";
 export const GET_USER_DATA_API = API_ROUTE + PROFILE_ROUTE + GET_USER_DATA_ROUTE;
 export const GET_USER_TICKETS_API = API_ROUTE + PROFILE_ROUTE + GET_USER_TICKETS_ROUTE;
 

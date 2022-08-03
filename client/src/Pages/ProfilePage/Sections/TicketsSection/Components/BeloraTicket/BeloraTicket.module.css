@@ -1,0 +1,77 @@
+.BeloraTicket {
+     margin-bottom: 15px;
+
+     border: var(--blue-50) 1px solid;
+     border-radius: 40px;
+
+     padding: 30px;
+
+     max-width: 640px;
+     width: 100%;
+
+     background-color: var(--blue-10);
+
+     display: flex;
+     align-items: flex-end;
+     justify-content: space-between;
+}
+.BeloraTicket_disabled {
+     border: none;
+
+     background: var(--blue-02);
+}
+@media screen and (max-width: 680px) {
+     .BeloraTicket {
+          flex-direction: column;
+          align-items: unset;
+     }
+}
+.content {
+     border-right: 1px solid white;
+
+     max-width: 70%;
+}
+
+@media screen and (max-width: 680px) {
+     .content {
+          margin-bottom: 15px;
+
+          border: none;
+
+          max-width: 100%;
+     }
+}
+.heading {
+     margin-bottom: 15px;
+
+     font-size: 2rem;
+}
+.description {
+     font-size: 1.5rem;
+}
+.action {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+}
+.number {
+     font-size: 0.6rem;
+}
+@media screen and (max-width: 680px) {
+     .action {
+          align-self: flex-end;
+     }
+}
+.status {
+     margin-bottom: 15px;
+
+     text-align: center;
+}
+
+.bot_link {
+     border-radius: 40px;
+
+     padding: 15px;
+
+     background-color: var(--teal-70);
+}

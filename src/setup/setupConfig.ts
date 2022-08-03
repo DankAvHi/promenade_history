@@ -16,6 +16,7 @@ export const {
      SESSION_EXPIRY,
      REFRESH_TOKEN_SECRET,
      QTICKETS_API_TOKEN,
+     QTICKETS_WEBHOOK_SIGNATURE_SECRET,
      SECURE = "false",
 } = process.env;
 
@@ -32,6 +33,7 @@ const requeiredValues: { [key: string]: any } = {
      SESSION_EXPIRY,
      REFRESH_TOKEN_SECRET,
      QTICKETS_API_TOKEN,
+     QTICKETS_WEBHOOK_SIGNATURE_SECRET,
 };
 
 for (let i = 0; i < Object.keys(requeiredValues).length; i++) {

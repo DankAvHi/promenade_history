@@ -1,0 +1,23 @@
+.EmailSection {
+     margin-bottom: 30px;
+
+     display: flex;
+     flex-direction: column;
+}
+.header,
+.email {
+     margin-bottom: 15px;
+
+     font-size: 2rem;
+}
+@media screen and (max-width: 550px) {
+     .email {
+          font-size: 1.5rem;
+     }
+}
+.change {
+     padding: 5px 30px;
+
+     border-radius: 40px;
+     background-color: var(--purpule-50);
+}

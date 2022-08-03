@@ -1,0 +1,57 @@
+.WelcomeSection {
+     margin-bottom: 30px;
+
+     display: flex;
+     align-items: flex-start;
+}
+
+@media screen and (max-width: 550px) {
+     .WelcomeSection {
+          flex-direction: column;
+          align-items: center;
+     }
+}
+
+.userImage {
+     margin-right: 30px;
+     border-radius: 100%;
+}
+@media screen and (max-width: 550px) {
+     .userImage {
+          margin-right: 0;
+          margin-bottom: 30px;
+     }
+}
+.heading {
+     margin-bottom: 20px;
+
+     font-weight: 500;
+     font-size: 2rem;
+}
+@media screen and (max-width: 550px) {
+     .heading {
+          margin-bottom: 15px;
+
+          font-size: 1.5rem;
+     }
+}
+.userName {
+     margin-bottom: 25px;
+
+     font-weight: 700;
+     font-size: 3rem;
+}
+@media screen and (max-width: 550px) {
+     .userName {
+          margin-bottom: 15px;
+
+          font-size: 2.5rem;
+     }
+}
+.logout {
+     border-radius: 40px;
+
+     padding: 15px 30px;
+
+     background-color: var(--crimson-90);
+}

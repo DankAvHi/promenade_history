@@ -5,12 +5,15 @@ import {
      WEBHOOK_QTICKETS_ORDER_DELETED_ROUTE,
      WEBHOOK_QTICKETS_ORDER_GET_PAYED_ROUTE,
 } from "../../../../shared/routes/api/api.shared";
+import checkSignature from "../../../middlewares/QTickets/checkSignature.middleware";
 import newOrderRouter from "./newOrder.api";
 import orderChangedRouter from "./orderChanged.api";
 import orderDeletedRouter from "./orderDeleted.api";
 import orderGetPayedRouter from "./orderGetPayed.api";
 
 const QTicketsRouter = Router();
+
+QTicketsRouter.use(checkSignature);
 
 QTicketsRouter.use(WEBHOOK_QTICKETS_NEW_ORDER_ROUTE, newOrderRouter);
 QTicketsRouter.use(WEBHOOK_QTICKETS_ORDER_GET_PAYED_ROUTE, orderGetPayedRouter);

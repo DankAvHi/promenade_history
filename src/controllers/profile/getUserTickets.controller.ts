@@ -3,7 +3,7 @@ import { GetUserTicketsResponse, TicketsData } from "../../../shared/interfaces/
 import requestServerError from "../../errors/requestServerError/requestServerError.error";
 import prisma from "../../setup/setupPrismaConnection";
 
-const getUserTicketController: RequestHandler = async (req, res, next) => {
+const getUserTicketsController: RequestHandler = async (req, res, next) => {
      try {
           if (!req.user) {
                return res.status(403).json({ error: "Unauth" });
@@ -37,4 +37,4 @@ const getUserTicketController: RequestHandler = async (req, res, next) => {
      }
 };
 
-export default getUserTicketController;
+export default getUserTicketsController;

@@ -1,0 +1,75 @@
+.ComboTicket {
+     margin-bottom: 15px;
+
+     border-radius: 40px;
+
+     padding: 30px;
+
+     background: var(--combo-ticket-background);
+
+     max-width: 640px;
+     width: 100%;
+
+     display: flex;
+     align-items: flex-end;
+     justify-content: space-between;
+}
+.ComboTicket_disabled {
+     background: var(--blue-02);
+}
+@media screen and (max-width: 680px) {
+     .ComboTicket {
+          flex-direction: column;
+          align-items: unset;
+     }
+}
+.content {
+     max-width: 70%;
+}
+@media screen and (max-width: 680px) {
+     .content {
+          margin-bottom: 15px;
+
+          max-width: 100%;
+     }
+}
+.heading {
+     margin-bottom: 15px;
+
+     font-size: 2rem;
+}
+.description {
+     border-right: 1px solid white;
+}
+
+@media screen and (max-width: 680px) {
+     .description {
+          border: none;
+     }
+}
+.action {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+}
+.number {
+     font-size: 0.6rem;
+}
+@media screen and (max-width: 680px) {
+     .action {
+          align-self: flex-end;
+     }
+}
+.status {
+     margin-bottom: 15px;
+
+     text-align: center;
+}
+
+.bot_link {
+     border-radius: 40px;
+
+     padding: 15px;
+
+     background-color: var(--teal-70);
+}

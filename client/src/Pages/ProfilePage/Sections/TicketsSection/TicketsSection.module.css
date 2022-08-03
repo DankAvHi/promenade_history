@@ -1,0 +1,9 @@
+.TicketsSection {
+}
+.heading {
+     margin-bottom: 30px;
+}
+.active {
+     display: flex;
+     flex-direction: column;
+}

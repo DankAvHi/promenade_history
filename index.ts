@@ -12,6 +12,7 @@ import apiRouter from "./src/api/api";
 import VKStrategy from "./src/authentication/strategies/VKStrategy";
 
 import { API_ROUTE } from "./shared/routes/api/api.shared";
+import rawBody from "./src/middlewares/QTickets/rawBody.middleware";
 import { COOKIE_OPTIONS, PORT, SECURE, SESSION_SECRET, STATIC_PATH } from "./src/setup/setupConfig";
 import { initializePrisma } from "./src/setup/setupPrismaConnection";
 
@@ -29,6 +30,7 @@ const httpsOptions = {
 };
 
 app.use(cors());
+app.use(rawBody);
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(
