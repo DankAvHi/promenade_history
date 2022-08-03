@@ -31,6 +31,8 @@ module.exports = {
                     { from: "prisma", to: "./" },
                     { from: ".env", to: "./" },
                     { from: "node_modules/.prisma/client/libquery_engine-debian-openssl-3.0.x.so.node", to: "./" },
+                    { from: "localhost-key.pem", to: "./" },
+                    { from: "localhost.pem", to: "./" },
                ],
           }),
      ],

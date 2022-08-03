@@ -31,6 +31,8 @@ module.exports = {
                     { from: "prisma", to: "./" },
                     { from: "node_modules/.prisma/client/query_engine-windows.dll.node", to: "./" },
                     { from: ".env", to: "./" },
+                    { from: "localhost-key.pem", to: "./" },
+                    { from: "localhost.pem", to: "./" },
                ],
           }),
      ],
