@@ -22,3 +22,13 @@ model ticket_type {
   price       String @db.VarChar(120)
   description String @db.LongText
 }
+
+model ticket {
+  idticket    Int    @id @unique(map: "idorder_UNIQUE")
+  vkid        Int?
+  name        String @db.VarChar(120)
+  order_id    Int
+  is_active   Int    @db.TinyInt
+  payed       Int    @db.TinyInt
+  description String @db.LongText
+}

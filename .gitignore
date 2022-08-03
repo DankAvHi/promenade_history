@@ -1,6 +1,6 @@
 node_modules
 dist
-session.db
+sessions.db
 .rest
 .pem
 localhost-key.pem
