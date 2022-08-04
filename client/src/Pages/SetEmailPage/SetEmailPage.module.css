@@ -9,14 +9,26 @@
 }
 .heading {
      margin-bottom: 60px;
+
+     max-width: 640px;
 }
 input {
      margin-bottom: 30px;
 }
 .submit {
+     transition: 0.5s;
+     margin-bottom: 15px;
+
      border-radius: 40px;
 
      padding: 15px 30px;
 
+     max-width: 320px;
+
      background-color: var(--crimson-90);
+}
+
+.submit:disabled {
+     background-color: var(--purpule-03);
+     cursor: not-allowed;
 }

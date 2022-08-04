@@ -7,11 +7,22 @@ import styles from "./Header.module.css";
 import HeaderText from "./HeaderText";
 
 export default function Header() {
-     const { isAuthenticated } = useContext(AuthContext);
+     const { isAuthenticated, email } = useContext(AuthContext);
      const { showTopPopup } = useTopPopup();
 
      const notAuthHandler = () => {
-          showTopPopup({ message: { text: "Авторизуйтесь через ВК для покупки", duration: 5000, type: "info" } });
+          if (!isAuthenticated) {
+               return showTopPopup({
+                    message: { text: "Авторизуйтесь через ВК для покупки", duration: 5000, type: "info" },
+               });
+          }
+          showTopPopup({
+               message: {
+                    text: "К вашему аккаунту не привязан Email, Добавьте его на странице профиля",
+                    duration: 5000,
+                    type: "info",
+               },
+          });
      };
 
      return (
@@ -25,10 +36,11 @@ export default function Header() {
                          <p className={styles.heroText}>{HeaderText.heroText}</p>
                          <p className={styles.secondSubText}>{HeaderText.secondSubText}</p>
 
-                         {isAuthenticated ? (
+                         {isAuthenticated && email ? (
                               <Button
                                    size="max"
                                    type="link"
+                                   external={true}
                                    href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
                                    text={HeaderText.buttonText}
                                    className={styles.button}

@@ -1,16 +1,18 @@
 import React from "react";
 
 interface IAuthContext {
-     login: (id: number) => void;
+     login: (email: string | null) => void;
      logout: () => void;
 
+     email: string | null;
      isAuthenticated: boolean | "unknow";
 }
 
 const defaultState: IAuthContext = {
-     login: (id: number) => {},
+     login: (email: string | null) => {},
      logout: () => {},
 
+     email: null,
      isAuthenticated: false,
 };
 

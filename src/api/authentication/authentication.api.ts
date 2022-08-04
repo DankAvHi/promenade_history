@@ -1,14 +1,14 @@
 import { Router } from "express";
 import { AUTH_LOGOUT_ROUTE, AUTH_VERIFYUSER_ROUTE, AUTH_VKONTAKTE_ROUTE } from "../../../shared/routes/api/api.shared";
+import logoutController from "../../controllers/authentication/logout.controller";
+import verifyUserController from "../../controllers/authentication/verifyUser.controller";
 import alreadyLoginCheck from "../../middlewares/authentication/alreadyLoginCheck.middleware";
-import logoutRouter from "./logout.api";
-import verifyUserRouter from "./verifyUser.api";
 import vkontakteRouter from "./vkontakte.api";
 
 const authenticationRouter = Router();
 
 authenticationRouter.use(AUTH_VKONTAKTE_ROUTE, alreadyLoginCheck, vkontakteRouter);
-authenticationRouter.use(AUTH_VERIFYUSER_ROUTE, verifyUserRouter);
-authenticationRouter.use(AUTH_LOGOUT_ROUTE, logoutRouter);
+authenticationRouter.get(AUTH_VERIFYUSER_ROUTE, verifyUserController);
+authenticationRouter.delete(AUTH_LOGOUT_ROUTE, logoutController);
 
 export default authenticationRouter;

@@ -4,8 +4,10 @@ import { api } from "../Api/index.api";
 export const useAuth = () => {
      const { verify, error } = api().useVerifyUserApi();
      const [isAuthenticated, setIsAuthenticated] = useState<boolean | "unknow">("unknow");
+     const [email, setEmail] = useState<string | null>(null);
 
-     const login = useCallback((id: number) => {
+     const login = useCallback((email: string | null) => {
+          setEmail(email);
           setIsAuthenticated(true);
      }, []);
 
@@ -21,7 +23,7 @@ export const useAuth = () => {
                     const data = await verify();
 
                     if (data.succes) {
-                         login(data.vkid);
+                         login(data.email);
                          return true;
                     } else {
                          localStorage.setItem("isUserHasAuthenticated", "false");
@@ -47,5 +49,5 @@ export const useAuth = () => {
           }
      }, [login, logout, verify]);
 
-     return { login, logout, isAuthenticated, error };
+     return { login, logout, isAuthenticated, email, setEmail, error };
 };

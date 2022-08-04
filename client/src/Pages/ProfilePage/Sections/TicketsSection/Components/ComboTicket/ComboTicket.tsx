@@ -23,7 +23,15 @@ const ComboTicket = ({ name, description, isActive, number }: TicketData) => {
                     <p className={`${styles.status} `}>
                          {isActive ? ProfilePageText.ticketStatus.active : ProfilePageText.ticketStatus.disabled}
                     </p>
-                    {isActive ? <Button text={ProfilePageText.bot_link} className={styles.bot_link} /> : null}
+                    {isActive ? (
+                         <Button
+                              type="link"
+                              external={true}
+                              text={ProfilePageText.botLinkText}
+                              className={styles.bot_link}
+                              href={ProfilePageText.botLink}
+                         />
+                    ) : null}
                </div>
           </div>
      );

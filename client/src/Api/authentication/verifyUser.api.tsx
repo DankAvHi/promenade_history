@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from "react";
 import useTopPopup from "../../Components/Common/TopPopup/TopPopup.hook";
+import { VerifyUserResponse } from "../../shared/interfaces/api/verifyUser.shared";
 import { AUTH_VERIFYUSER_API } from "../../shared/routes/api/api.shared";
 import { useHttp } from "./../http.hook";
 
@@ -14,7 +15,7 @@ export default function useVerifyUserApi() {
      }, [error, clearError, showTopPopup]);
 
      const verify = useCallback(async () => {
-          const data = await request({ url: AUTH_VERIFYUSER_API, method: "GET" });
+          const data: VerifyUserResponse = await request({ url: AUTH_VERIFYUSER_API, method: "GET" });
 
           return data;
      }, [request]);

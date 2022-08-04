@@ -26,6 +26,17 @@ export const CHANGE_EMAIL_API = API_ROUTE + PROFILE_ROUTE + CHANGE_EMAIL_ROUTE;
 export const CHANGE_EMAIL_INVALID_EMAIL_ERROR = "invalid email";
 export const CHANGE_EMAIL_EXISTED_EMAIL_ERROR = "email existed";
 
+export const CHECK_EMAIL_VERIFICATION_ROUTE = "/check-email-verification";
+export const CHECK_EMAIL_VERIFICATION_API = API_ROUTE + PROFILE_ROUTE + CHECK_EMAIL_VERIFICATION_ROUTE;
+
+export const VERIFY_EMAIL_ROUTE = "/verify-email";
+export const VERIFY_EMAIL_API = API_ROUTE + PROFILE_ROUTE + VERIFY_EMAIL_ROUTE;
+export const VERIFY_EMAIL_NO_CODE_ERROR = "No Code";
+export const VERIFY_EMAIL_INCORRECT_CODE = "Code is incorrect";
+
+export const CANCEL_EMAIL_CHANGE_ROUTE = "/cancel-email-change";
+export const CANCEL_EMAIL_CHANGE_API = API_ROUTE + PROFILE_ROUTE + CANCEL_EMAIL_CHANGE_ROUTE;
+
 //WEBHOOK
 export const WEBHOOK_ROUTE = "/webhook";
 //QTICKETS

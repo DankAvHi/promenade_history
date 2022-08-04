@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { WEBHOOK_QTICKETS_ROUTE } from "../../../shared/routes/api/api.shared";
-import QTicketsRouter from "./QTickets/QTickets.api";
+import QTicketsRouter from "./QTickets.api";
 
 const webhookRouter = Router();
 

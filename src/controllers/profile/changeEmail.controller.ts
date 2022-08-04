@@ -3,6 +3,8 @@ import { ChangeEmailRequest, ChangeEmailResponse } from "../../../shared/interfa
 import { CHANGE_EMAIL_INVALID_EMAIL_ERROR } from "../../../shared/routes/api/api.shared";
 import requestServerError from "../../errors/requestServerError/requestServerError.error";
 import validateEmail from "../../functions/profile/validateEmail";
+import { EMAIL_ADDRES } from "../../setup/setupConfig";
+import { transporter } from "../../setup/setupNodemailer";
 import prisma from "../../setup/setupPrismaConnection";
 
 const changeEmailController: RequestHandler = async (req, res, next) => {
@@ -22,13 +24,17 @@ const changeEmailController: RequestHandler = async (req, res, next) => {
                return res.status(409).json({ error: "email existed" });
           }
 
-          const newUser = await prisma.user.update({
-               where: {
-                    vkid: req.user.vkid,
-               },
-               data: {
-                    email: email,
-               },
+          req.session.unverifyedEmail = email;
+
+          const verifyCode = Math.floor(Math.random() * (99999 - 10000) + 10000);
+
+          req.session.verifyCode = verifyCode;
+
+          const letter = await transporter.sendMail({
+               from: `Promenade History ${EMAIL_ADDRES}`,
+               to: `${email}`,
+               subject: `Подтверждение электронной почты `,
+               text: `Для подтверждения вашей электронной почты, введите этот код на странице подтверждения: ${verifyCode}`,
           });
 
           const response: ChangeEmailResponse = {

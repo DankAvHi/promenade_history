@@ -9,11 +9,22 @@ import styles from "./HowItWorksSection.module.css";
 import { actionCallText, actionText, headingText, itemsTexts } from "./HowItWorksSection.text";
 
 const HowItWorksSection = () => {
-     const { isAuthenticated } = useContext(AuthContext);
+     const { isAuthenticated, email } = useContext(AuthContext);
      const { showTopPopup } = useTopPopup();
 
      const notAuthHandler = () => {
-          showTopPopup({ message: { text: "Авторизуйтесь через ВК для покупки", duration: 5000, type: "info" } });
+          if (!isAuthenticated) {
+               return showTopPopup({
+                    message: { text: "Авторизуйтесь через ВК для покупки", duration: 5000, type: "info" },
+               });
+          }
+          showTopPopup({
+               message: {
+                    text: "К вашему аккаунту не привязан Email, Добавьте его на странице профиля",
+                    duration: 5000,
+                    type: "info",
+               },
+          });
      };
      return (
           <div id="howItWorks" className={styles.HowItWorksSection}>
@@ -42,7 +53,7 @@ const HowItWorksSection = () => {
                     </ul>
                     <div className={styles.action}>
                          <p className={styles.actionCall}>{actionCallText}</p>
-                         {isAuthenticated ? (
+                         {isAuthenticated && email ? (
                               <Button
                                    text={actionText}
                                    type={"link"}

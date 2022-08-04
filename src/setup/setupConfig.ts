@@ -18,6 +18,8 @@ export const {
      QTICKETS_API_TOKEN,
      QTICKETS_WEBHOOK_SIGNATURE_SECRET,
      SECURE = "false",
+     EMAIL_ADDRES,
+     EMAIL_PASSWORD,
 } = process.env;
 
 const requeiredValues: { [key: string]: any } = {
@@ -34,6 +36,8 @@ const requeiredValues: { [key: string]: any } = {
      REFRESH_TOKEN_SECRET,
      QTICKETS_API_TOKEN,
      QTICKETS_WEBHOOK_SIGNATURE_SECRET,
+     EMAIL_ADDRES,
+     EMAIL_PASSWORD,
 };
 
 for (let i = 0; i < Object.keys(requeiredValues).length; i++) {

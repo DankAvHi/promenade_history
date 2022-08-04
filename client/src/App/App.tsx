@@ -13,7 +13,7 @@ import { useRoutes } from "./App.routes";
 import AppContext from "./contexts/App.context";
 
 function App() {
-     const { login, logout, isAuthenticated } = useAuth();
+     const { login, logout, isAuthenticated, email } = useAuth();
      const { lockScroll, unlockScroll } = useScrollLock();
      const location = useLocation();
 
@@ -57,7 +57,7 @@ function App() {
 
      return (
           <AppContext.Provider value={{ appTopPopupMesages, setAppTopPopupMesages }}>
-               <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+               <AuthContext.Provider value={{ isAuthenticated, login, logout, email }}>
                     {appTopPopupMesages.length
                          ? appTopPopupMesages.map((message) => (
                                 <TopPopup

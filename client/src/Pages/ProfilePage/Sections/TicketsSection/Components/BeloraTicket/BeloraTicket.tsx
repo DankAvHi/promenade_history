@@ -22,7 +22,7 @@ const BeloraTicket = ({ name, description, isActive, number }: TicketData) => {
                     <p className={`${styles.status} `}>
                          {isActive ? ProfilePageText.ticketStatus.active : ProfilePageText.ticketStatus.disabled}
                     </p>
-                    {isActive ? <Button text={ProfilePageText.bot_link} className={styles.bot_link} /> : null}
+                    {isActive ? <Button text={ProfilePageText.botLinkText} className={styles.bot_link} /> : null}
                </div>
           </div>
      );

@@ -9,11 +9,22 @@ import styles from "./TicketSection.module.css";
 import TicketSectionText from "./TicketSection.text";
 
 const TicketSection = () => {
-     const { isAuthenticated } = useContext(AuthContext);
+     const { isAuthenticated, email } = useContext(AuthContext);
      const { showTopPopup } = useTopPopup();
 
      const notAuthHandler = () => {
-          showTopPopup({ message: { text: "Авторизуйтесь через ВК для покупки", duration: 5000, type: "info" } });
+          if (!isAuthenticated) {
+               return showTopPopup({
+                    message: { text: "Авторизуйтесь через ВК для покупки", duration: 5000, type: "info" },
+               });
+          }
+          showTopPopup({
+               message: {
+                    text: "К вашему аккаунту не привязан Email, Добавьте его на странице профиля",
+                    duration: 5000,
+                    type: "info",
+               },
+          });
      };
      return (
           <div id="tickets" className={styles.TicketSection}>
@@ -32,7 +43,7 @@ const TicketSection = () => {
                                    </p>
                                    <img className={styles.comboImage} src={emojiImage} alt="" />
                               </div>
-                              {isAuthenticated ? (
+                              {isAuthenticated && email ? (
                                    <Button
                                         type="link"
                                         href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
@@ -49,7 +60,7 @@ const TicketSection = () => {
                               )}
                          </div>
 
-                         <div className={styles.beloraTicket}>
+                         {/* <div className={styles.beloraTicket}>
                               <Heading className={styles.beloraHeading} headingLevel="h3">
                                    {TicketSectionText.historyBelora.heading}
                               </Heading>
@@ -59,7 +70,7 @@ const TicketSection = () => {
                                         {TicketSectionText.historyBelora.description}
                                    </p>
                               </div>
-                              {isAuthenticated ? (
+                              {isAuthenticated && email ? (
                                    <Button
                                         type="link"
                                         href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
@@ -74,7 +85,7 @@ const TicketSection = () => {
                                         onClick={notAuthHandler}
                                    />
                               )}
-                         </div>
+                         </div> */}
                     </div>
                </div>
           </div>
