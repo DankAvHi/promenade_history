@@ -63,6 +63,7 @@ if (SECURE === "true") {
      if (!SECURE_CERT_PATH || !SECURE_KEY_PATH) {
           throw new Error(`❌ [server] SSL files paths not provided in .env file`);
      }
+
      const httpsOptions = {
           key: fs.readFileSync(path.resolve(SECURE_KEY_PATH)),
           cert: fs.readFileSync(path.resolve(SECURE_CERT_PATH)),
@@ -71,7 +72,7 @@ if (SECURE === "true") {
      const server = https.createServer(httpsOptions, app);
 
      server.listen(PORT, () => {
-          console.log(`\n⚡[INFO] Server launched at ${URL}\n`);
+          console.log(`\n⚡[INFO] SECURE Server launched at ${URL}\n`);
      });
 } else {
      app.listen(PORT, () => {
