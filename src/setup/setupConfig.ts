@@ -45,8 +45,6 @@ const requeiredValues: { [key: string]: any } = {
      QTICKETS_WEBHOOK_SIGNATURE_SECRET,
      EMAIL_ADDRES,
      EMAIL_PASSWORD,
-     SECURE_CERT_PATH,
-     SECURE_KEY_PATH,
 };
 
 for (let i = 0; i < Object.keys(requeiredValues).length; i++) {
@@ -54,6 +52,12 @@ for (let i = 0; i < Object.keys(requeiredValues).length; i++) {
 
      if (!requeiredValues[keys[i]]) {
           throw new Error(`❌ [server] ${keys[i]} not provided in .env file`);
+     }
+}
+
+if (SECURE === "true") {
+     if (!SECURE_CERT_PATH || !SECURE_KEY_PATH) {
+          throw new Error(`❌ [server] SSL files paths not provided in .env file`);
      }
 }
 
