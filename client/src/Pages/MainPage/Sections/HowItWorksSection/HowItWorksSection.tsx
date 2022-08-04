@@ -53,7 +53,7 @@ const HowItWorksSection = () => {
                     </ul>
                     <div className={styles.action}>
                          <p className={styles.actionCall}>{actionCallText}</p>
-                         {isAuthenticated && email ? (
+                         {/* {isAuthenticated && email ? (
                               <Button
                                    text={actionText}
                                    type={"link"}
@@ -63,7 +63,14 @@ const HowItWorksSection = () => {
                               />
                          ) : (
                               <Button text={actionText} onClick={notAuthHandler} className={styles.actionButton} />
-                         )}
+                         )} */}
+                         <Button
+                              text={actionText}
+                              type={"link"}
+                              href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                              external={true}
+                              className={styles.actionButton}
+                         />
                     </div>
                </div>
           </div>

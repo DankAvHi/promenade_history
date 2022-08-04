@@ -43,7 +43,7 @@ const TicketSection = () => {
                                    </p>
                                    <img className={styles.comboImage} src={emojiImage} alt="" />
                               </div>
-                              {isAuthenticated && email ? (
+                              {/* {isAuthenticated && email ? (
                                    <Button
                                         type="link"
                                         href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
@@ -57,7 +57,14 @@ const TicketSection = () => {
                                         text={TicketSectionText.historyCombo.price}
                                         onClick={notAuthHandler}
                                    />
-                              )}
+                              )} */}
+                              <Button
+                                   type="link"
+                                   href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                                   external={true}
+                                   className={styles.comboPrice}
+                                   text={TicketSectionText.historyCombo.price}
+                              />
                          </div>
 
                          {/* <div className={styles.beloraTicket}>

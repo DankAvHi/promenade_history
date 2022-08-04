@@ -36,7 +36,7 @@ export default function Header() {
                          <p className={styles.heroText}>{HeaderText.heroText}</p>
                          <p className={styles.secondSubText}>{HeaderText.secondSubText}</p>
 
-                         {isAuthenticated && email ? (
+                         {/* {isAuthenticated && email ? (
                               <Button
                                    size="max"
                                    type="link"
@@ -52,7 +52,16 @@ export default function Header() {
                                    text={HeaderText.buttonText}
                                    className={styles.button}
                               />
-                         )}
+                         )} */}
+
+                         <Button
+                              size="max"
+                              type="link"
+                              external={true}
+                              href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                              text={HeaderText.buttonText}
+                              className={styles.button}
+                         />
 
                          <p className={styles.buttonSubText}>{HeaderText.buttonSubText}</p>
                     </div>

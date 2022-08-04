@@ -2,12 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../../contexts/AuthContext";
 import useWindowSize from "../../../hooks/windowSize.hook";
-import { AUTH_VKONTAKTE_API } from "../../../shared/routes/api/api.shared";
 import SiteSections from "../../../types/Navigation/siteSections.type";
 import menuImage from "./Assets/Images/menuIcon.png";
-import vkImage from "./Assets/Images/vkIcon.png";
 import styles from "./Navigation.module.css";
-import { AUTH_WITH, PROFILE_LINK_TEXT } from "./Navigation.text";
 
 type NavigationProps = {
      siteSections: SiteSections;
@@ -52,7 +49,7 @@ export default function Navigation({ siteSections }: NavigationProps) {
                                    </li>
                               );
                          })}
-                         {isAuthenticated ? (
+                         {/* {isAuthenticated ? (
                               <li className={styles.item}>
                                    <Link className={styles.vkLink} to={`/profile`}>
                                         <span className={styles.vkText}>{PROFILE_LINK_TEXT}</span>
@@ -68,7 +65,7 @@ export default function Navigation({ siteSections }: NavigationProps) {
                                    <span className={styles.vkText}>{AUTH_WITH}</span>
                                    <img className={styles.vkImage} src={vkImage} alt="" />
                               </a>
-                         )}
+                         )} */}
                     </ul>
 
                     <button onClick={toogleMenuButtonOnclickHandler} className={styles.button}>

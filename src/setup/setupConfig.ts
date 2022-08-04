@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import path from "path";
 dotenv.config({
      path:
-          process.env.NODE_ENV === "development"
+          process.env.NODE_ENV === "development" || process.argv[2] === "development"
                ? path.resolve(process.cwd(), "develop.env")
                : path.resolve(process.cwd(), "production.env"),
 });
