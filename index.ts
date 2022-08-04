@@ -57,7 +57,7 @@ VKStrategy();
 
 app.use(API_ROUTE, apiRouter);
 
-app.get("*", (_, res) => res.sendFile(path.resolve("client", "build", "index.html")));
+app.get("*", (_, res) => res.sendFile(path.resolve(STATIC_PATH, "index.html")));
 
 if (SECURE === "true") {
      if (!SECURE_CERT_PATH || !SECURE_KEY_PATH) {
