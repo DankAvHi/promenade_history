@@ -13,7 +13,16 @@ import VKStrategy from "./src/authentication/strategies/VKStrategy";
 
 import { API_ROUTE } from "./shared/routes/api/api.shared";
 import rawBody from "./src/middlewares/QTickets/rawBody.middleware";
-import { COOKIE_OPTIONS, PORT, SECURE, SESSION_SECRET, STATIC_PATH } from "./src/setup/setupConfig";
+import {
+     COOKIE_OPTIONS,
+     PORT,
+     SECURE,
+     SECURE_CERT_PATH,
+     SECURE_KEY_PATH,
+     SESSION_SECRET,
+     STATIC_PATH,
+     URL,
+} from "./src/setup/setupConfig";
 import { initializePrisma } from "./src/setup/setupPrismaConnection";
 
 if (!SESSION_SECRET) {
@@ -24,10 +33,6 @@ const app = express();
 initializePrisma();
 const SQLiteStore = ConnectSQLite3(expressSession);
 const store = new SQLiteStore({ table: "sessions", db: "sessions.db" });
-const httpsOptions = {
-     key: fs.readFileSync("./localhost-key.pem"),
-     cert: fs.readFileSync("./localhost.pem"),
-};
 
 app.use(cors());
 app.use(rawBody);
@@ -55,13 +60,21 @@ app.use(API_ROUTE, apiRouter);
 app.get("*", (_, res) => res.sendFile(path.resolve("client", "build", "index.html")));
 
 if (SECURE === "true") {
+     if (!SECURE_CERT_PATH || !SECURE_KEY_PATH) {
+          throw new Error(`❌ [server] SSL files paths not provided in .env file`);
+     }
+     const httpsOptions = {
+          key: fs.readFileSync(path.resolve(SECURE_KEY_PATH)),
+          cert: fs.readFileSync(path.resolve(SECURE_CERT_PATH)),
+     };
+
      const server = https.createServer(httpsOptions, app);
 
      server.listen(PORT, () => {
-          console.log(`\n⚡[INFO] Server launched at https://localhost:${PORT}\n`);
+          console.log(`\n⚡[INFO] Server launched at ${URL}\n`);
      });
 } else {
      app.listen(PORT, () => {
-          console.log(`\n⚡[INFO] Server launched at http://localhost:${PORT}\n`);
+          console.log(`\n⚡[INFO] Server launched at ${URL}\n`);
      });
 }

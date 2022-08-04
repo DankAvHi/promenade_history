@@ -1,6 +1,11 @@
 import dotenv from "dotenv";
 import path from "path";
-dotenv.config();
+dotenv.config({
+     path:
+          process.env.NODE_ENV === "development"
+               ? path.resolve(process.cwd(), "develop.env")
+               : path.resolve(process.cwd(), "production.env"),
+});
 
 export const {
      PORT,
@@ -20,6 +25,8 @@ export const {
      SECURE = "false",
      EMAIL_ADDRES,
      EMAIL_PASSWORD,
+     SECURE_CERT_PATH,
+     SECURE_KEY_PATH,
 } = process.env;
 
 const requeiredValues: { [key: string]: any } = {
@@ -38,6 +45,8 @@ const requeiredValues: { [key: string]: any } = {
      QTICKETS_WEBHOOK_SIGNATURE_SECRET,
      EMAIL_ADDRES,
      EMAIL_PASSWORD,
+     SECURE_CERT_PATH,
+     SECURE_KEY_PATH,
 };
 
 for (let i = 0; i < Object.keys(requeiredValues).length; i++) {
