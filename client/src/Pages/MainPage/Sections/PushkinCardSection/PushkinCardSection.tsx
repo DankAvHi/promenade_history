@@ -1,8 +1,8 @@
 import SectionHeading from "../../../../Components/UI/Headings/SectionHeading/SectionHeading";
+import sectionImage from "./Assets/cardBig.jpg";
 import cardImage from "./Assets/cardImage.png";
 import createAccountImage from "./Assets/createAccountImage.png";
 import downloadImage from "./Assets/downloadImage.png";
-import sectionImage from "./Assets/sectionImage.png";
 import styles from "./PushkinCardSection.module.css";
 import PushkinCardSectionText from "./PushkinCardSection.text";
 

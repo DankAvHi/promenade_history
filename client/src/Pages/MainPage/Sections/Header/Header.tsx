@@ -41,7 +41,7 @@ export default function Header() {
                                    size="max"
                                    type="link"
                                    external={true}
-                                   href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                                   href="https://krasnodar.qtickets.events/46947-history-combo"
                                    text={HeaderText.buttonText}
                                    className={styles.button}
                               />
@@ -58,7 +58,7 @@ export default function Header() {
                               size="max"
                               type="link"
                               external={true}
-                              href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                              href="https://krasnodar.qtickets.events/46947-history-combo"
                               text={HeaderText.buttonText}
                               className={styles.button}
                          />

@@ -46,7 +46,7 @@ const TicketSection = () => {
                               {/* {isAuthenticated && email ? (
                                    <Button
                                         type="link"
-                                        href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                                        href="https://krasnodar.qtickets.events/46947-history-combo"
                                         external={true}
                                         className={styles.comboPrice}
                                         text={TicketSectionText.historyCombo.price}
@@ -60,7 +60,7 @@ const TicketSection = () => {
                               )} */}
                               <Button
                                    type="link"
-                                   href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                                   href="https://krasnodar.qtickets.events/46947-history-combo"
                                    external={true}
                                    className={styles.comboPrice}
                                    text={TicketSectionText.historyCombo.price}
@@ -80,7 +80,7 @@ const TicketSection = () => {
                               {isAuthenticated && email ? (
                                    <Button
                                         type="link"
-                                        href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                                        href="https://krasnodar.qtickets.events/46947-history-combo"
                                         external={true}
                                         className={styles.beloraPrice}
                                         text={TicketSectionText.historyBelora.price}

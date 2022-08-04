@@ -53,6 +53,12 @@
 .sectionImage {
      margin-bottom: 160px;
 
+     border: 1px solid var(--crimson-90);
+     border-radius: 40px;
+
+     padding: 30px;
+     padding-bottom: 0;
+
      max-width: 840px;
      max-height: 472px;
      width: 100%;

@@ -4,6 +4,7 @@
      border-radius: var(--section-boder-radius);
 
      padding: var(--section-padding);
+     padding-bottom: 30px;
      padding-top: var(--section-padding-top);
 
      background: var(--what-is-background);

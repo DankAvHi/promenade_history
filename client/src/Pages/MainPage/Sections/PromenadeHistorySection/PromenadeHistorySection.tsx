@@ -1,5 +1,4 @@
 import SectionHeading from "../../../../Components/UI/Headings/SectionHeading/SectionHeading";
-import sectionImage from "./Assets/sectionImage.png";
 import styles from "./PromenadeHistorySection.module.css";
 import PromenadeHistorySectionText from "./PromenadeHistorySection.text";
 
@@ -15,7 +14,7 @@ const PromenadeHistorySection = () => {
                          <span className={styles.accientText}> {PromenadeHistorySectionText.accient}</span>
                          {PromenadeHistorySectionText.section}
                     </p>
-                    <img src={sectionImage} className={styles.image} alt="" />
+                    {/* <img src={sectionImage} className={styles.image} alt="" /> */}
                </div>
           </div>
      );

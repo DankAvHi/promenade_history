@@ -57,7 +57,7 @@ const HowItWorksSection = () => {
                               <Button
                                    text={actionText}
                                    type={"link"}
-                                   href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                                   href="https://krasnodar.qtickets.events/46947-history-combo"
                                    external={true}
                                    className={styles.actionButton}
                               />
@@ -67,7 +67,7 @@ const HowItWorksSection = () => {
                          <Button
                               text={actionText}
                               type={"link"}
-                              href="https://moscow.qtickets.events/46542-testovoe-meropriyatie"
+                              href="https://krasnodar.qtickets.events/46947-history-combo"
                               external={true}
                               className={styles.actionButton}
                          />

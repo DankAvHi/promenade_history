@@ -1,6 +1,6 @@
 import SectionHeading from "../../../../Components/UI/Headings/SectionHeading/SectionHeading";
 import fountainImage from "./Assets/fountain.png";
-import startPointImage from "./Assets/startPointImage.png";
+import startPointImage from "./Assets/FountainImage.jpg";
 import styles from "./StartPointSection.module.css";
 import StartPointText from "./StartPointSection.text";
 
