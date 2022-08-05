@@ -60,6 +60,10 @@ app.use(API_ROUTE, apiRouter);
 app.get("*", (_, res) => res.sendFile(path.resolve(STATIC_PATH, "index.html")));
 
 if (SECURE === "true") {
+     app.enable("trust proxy");
+     app.use((req, res, next) => {
+          req.secure ? next() : res.redirect("https://" + req.headers.host + req.url);
+     });
      if (!SECURE_CERT_PATH || !SECURE_KEY_PATH) {
           throw new Error(`❌ [server] SSL files paths not provided in .env file`);
      }
