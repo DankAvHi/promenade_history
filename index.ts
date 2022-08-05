@@ -65,17 +65,17 @@ if (SECURE === "true") {
      }
 
      const httpsOptions = {
-          key: fs.readFileSync(path.resolve(SECURE_KEY_PATH)),
-          cert: fs.readFileSync(path.resolve(SECURE_CERT_PATH)),
+          key: fs.readFileSync(SECURE_KEY_PATH),
+          cert: fs.readFileSync(SECURE_CERT_PATH),
      };
 
      const server = https.createServer(httpsOptions, app);
 
      server.listen(PORT, () => {
-          console.log(`\n⚡[INFO] SECURE Server launched at ${URL}\n`);
+          console.log(`\n⚡[INFO] SECURE Server launched at ${URL} port: ${PORT}\n`);
      });
 } else {
      app.listen(PORT, () => {
-          console.log(`\n⚡[INFO] Server launched at ${URL}\n`);
+          console.log(`\n⚡[INFO] Server launched at ${URL} port: ${PORT}\n`);
      });
 }

@@ -8,7 +8,6 @@ dotenv.config({
 });
 
 export const {
-     PORT,
      NODE_ENV = "production",
      CLIENT_URL,
      URL,
@@ -30,7 +29,6 @@ export const {
 } = process.env;
 
 const requeiredValues: { [key: string]: any } = {
-     PORT,
      CLIENT_URL,
      URL,
      REFRESH_TOKEN_EXPIRY,
@@ -60,7 +58,8 @@ if (SECURE === "true") {
           throw new Error(`❌ [server] SSL files paths not provided in .env file`);
      }
 }
-
+export const PORT =
+     NODE_ENV == "development" || process.argv[2] === "development" ? process.env.PORT : SECURE == "true" ? 443 : 80;
 export const STATIC_PATH =
      NODE_ENV == "development" || process.argv[2] === "development"
           ? path.resolve("client", "build")
