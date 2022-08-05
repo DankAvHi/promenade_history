@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import { CookieOptions } from "express-session";
 import path from "path";
 dotenv.config({
      path:
@@ -27,6 +28,8 @@ export const {
      SECURE_CERT_PATH,
      SECURE_KEY_PATH,
 } = process.env;
+
+export const isDevelopment = NODE_ENV == "development" || process.argv[2] === "development";
 
 const requeiredValues: { [key: string]: any } = {
      CLIENT_URL,
@@ -58,27 +61,32 @@ if (SECURE === "true") {
           throw new Error(`❌ [server] SSL files paths not provided in .env file`);
      }
 }
-export const PORT =
-     NODE_ENV == "development" || process.argv[2] === "development" ? process.env.PORT : SECURE == "true" ? 443 : 80;
-export const STATIC_PATH =
-     NODE_ENV == "development" || process.argv[2] === "development"
-          ? path.resolve("client", "build")
-          : path.resolve("public");
+export const HTTP_PORT = isDevelopment ? process.env.DEV_HTTP_PORT : process.env.HTTP_PORT;
+export const HTTPS_PORT = isDevelopment ? process.env.DEV_HTTPS_PORT : process.env.HTTPS_PORT;
 
-export const HOME_PAGE_ROUTE = NODE_ENV == "development" || process.argv[2] === "development" ? CLIENT_URL : URL;
+if (!HTTP_PORT || (SECURE && !HTTPS_PORT)) {
+     throw new Error(`❌ [server] PORTS not provided in .env file`);
+}
 
-export const COOKIE_OPTIONS = {
-     // httpOnly: true,
-     // secure: true,
+export const STATIC_PATH = isDevelopment ? path.resolve("client", "build") : path.resolve("public");
+
+export const HOME_PAGE_ROUTE = isDevelopment ? CLIENT_URL : URL;
+
+if (!REFRESH_TOKEN_EXPIRY) {
+     throw new Error(`❌ [server] REFRESH_TOKEN_EXPIRY not provided in .env file`);
+}
+
+export const COOKIE_OPTIONS: CookieOptions = {
+     httpOnly: SECURE === "true",
+     secure: SECURE === "true",
      signed: true,
-     //@ts-ignore
      maxAge: eval(REFRESH_TOKEN_EXPIRY),
      sameSite: false,
 };
 
-export const NOT_EXPIRED_COOKIE_OPTIONS = {
-     // httpOnly: true,
-     // secure: true,
+export const NOT_EXPIRED_COOKIE_OPTIONS: CookieOptions = {
+     httpOnly: SECURE === "true",
+     secure: SECURE === "true",
      signed: true,
      sameSite: false,
 };

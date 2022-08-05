@@ -15,7 +15,9 @@ import { API_ROUTE } from "./shared/routes/api/api.shared";
 import rawBody from "./src/middlewares/QTickets/rawBody.middleware";
 import {
      COOKIE_OPTIONS,
-     PORT,
+     HTTPS_PORT,
+     HTTP_PORT,
+     isDevelopment,
      SECURE,
      SECURE_CERT_PATH,
      SECURE_KEY_PATH,
@@ -60,10 +62,12 @@ app.use(API_ROUTE, apiRouter);
 app.get("*", (_, res) => res.sendFile(path.resolve(STATIC_PATH, "index.html")));
 
 if (SECURE === "true") {
-     app.enable("trust proxy");
-     app.use((req, res, next) => {
-          req.secure ? next() : res.redirect("https://" + req.headers.host + req.url);
+     const http = express();
+     http.get("*", function (req, res) {
+          const host = isDevelopment ? `localhost:${HTTPS_PORT}` : req.headers.host;
+          res.redirect(302, "https://" + host + req.url);
      });
+     http.listen(HTTP_PORT);
      if (!SECURE_CERT_PATH || !SECURE_KEY_PATH) {
           throw new Error(`❌ [server] SSL files paths not provided in .env file`);
      }
@@ -75,11 +79,11 @@ if (SECURE === "true") {
 
      const server = https.createServer(httpsOptions, app);
 
-     server.listen(PORT, () => {
-          console.log(`\n⚡[INFO] SECURE Server launched at ${URL} port: ${PORT}\n`);
+     server.listen(HTTPS_PORT, () => {
+          console.log(`\n⚡[INFO] SECURE Server launched at ${URL} port: ${HTTPS_PORT}`);
      });
 } else {
-     app.listen(PORT, () => {
-          console.log(`\n⚡[INFO] Server launched at ${URL} port: ${PORT}\n`);
+     app.listen(HTTP_PORT, () => {
+          console.log(`\n⚡[INFO] Server launched at ${URL} port: ${HTTP_PORT}`);
      });
 }
