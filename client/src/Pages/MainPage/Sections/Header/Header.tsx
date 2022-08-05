@@ -27,6 +27,7 @@ export default function Header() {
 
      return (
           <div className={styles.Header}>
+               <h1 style={{ visibility: "hidden", lineHeight: "0" }}>Promenade History</h1>
                <div className={styles.container}>
                     <img className={styles.logoImage} src={logoImage} alt="" />
 
