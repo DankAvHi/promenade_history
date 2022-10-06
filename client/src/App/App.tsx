@@ -69,13 +69,13 @@ function App() {
                            ))
                          : null}
                     <div className={styles.App}>
+                         {routes}
                          {loading ? <Loader /> : null}
                          {isAuthenticated === "unknow" ? (
                               <Loader />
                          ) : (
                               <>
                                    <Navigation siteSections={siteSections} />
-                                   {routes}
                               </>
                          )}
                     </div>
