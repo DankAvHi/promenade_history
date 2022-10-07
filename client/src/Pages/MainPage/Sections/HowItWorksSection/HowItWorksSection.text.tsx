@@ -25,7 +25,7 @@ export const itemsTexts: { heading: ReactElement<HTMLSpanElement>; content: Reac
           ),
      },
      {
-          heading: <span className={textStyles.crimson90}>{"Идёшь на прогулку в удобное время"}</span>,
+          heading: <span className={textStyles.crimson90}>{"Идёшь на спектакль в удобное время"}</span>,
           content: (
                <p>
                     <span>{"Не забудь зарядить смартфон и взять любимые наушники. Приходи в любой день с "}</span>

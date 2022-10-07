@@ -11,7 +11,7 @@ const MoreAboutSectionText = {
      content: (
           <>
                <span>{"Это "}</span>
-               <span className={textStyles.purpule50}>{"аудио-подкаст"}</span>
+               <span className={textStyles.purpule50}>{"Иммерсивный Спектакль"}</span>
                <span>{", созданный профессорами по истории, с многоголосой озвучкой. И "}</span>
                <span className={textStyles.purpule50}>{"главный участник "}</span>
                <span>{"всего происходящего – "}</span>

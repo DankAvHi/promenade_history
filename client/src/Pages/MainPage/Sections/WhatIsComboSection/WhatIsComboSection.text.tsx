@@ -13,12 +13,12 @@ const WhatIsComboSectionText = {
           <>
                <span>{"Мы придумали "}</span>
                <span className={textStyles.purpule50}>{"хистори комбо"}</span>
-               <span>{", чтобы дополнить те яркие эмоции, которые ты получишь на нашей "}</span>
-               <span className={textStyles.purpule50}>{"исторической прогулке"}</span>
+               <span>{", чтобы дополнить те яркие эмоции, которые ты получишь на нашем "}</span>
+               <span className={textStyles.purpule50}>{"Иммерсивном Спектакле"}</span>
                <span>{"."}</span>
                <br />
                <br />
-               <span>{"Поэтому вместе с билетом на культурную прогулку "}</span>
+               <span>{"Поэтому вместе с билетом на спектакль "}</span>
                <span className={textStyles.purpule50}>{"ты получишь "}</span>
                <span>{"выбранный тобой "}</span>
                <span className={textStyles.purpule50}>{"сертификат"}</span>

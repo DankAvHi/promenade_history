@@ -6,3 +6,4 @@ sessions.db
 localhost-key.pem
 localhost.pem
 .env
+server.txt
