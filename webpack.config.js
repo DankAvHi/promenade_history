@@ -30,7 +30,6 @@ module.exports = {
                patterns: [
                     { from: "prisma", to: "./" },
                     { from: "production.env", to: "./" },
-                    { from: "develop.env", to: "./" },
                     { from: "node_modules/.prisma/client/libquery_engine-rhel-openssl-1.1.x.so.node", to: "./" },
                ],
           }),
