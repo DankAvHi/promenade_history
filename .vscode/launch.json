@@ -29,6 +29,17 @@
                "console": "integratedTerminal",
                "internalConsoleOptions": "neverOpen",
                "args": ["development"]
+          },
+          {
+               "type": "node",
+               "request": "launch",
+               "name": "Server_secure",
+               "runtimeExecutable": "nodemon",
+               "program": "${workspaceFolder}/index.ts",
+               "restart": true,
+               "console": "integratedTerminal",
+               "internalConsoleOptions": "neverOpen",
+               "args": ["development", "secure"]
           }
      ],
      "compounds": [
@@ -37,8 +48,8 @@
                "configurations": ["Server", "Client"]
           },
           {
-               "name": "Server/Client_secure",
-               "configurations": ["Server", "Client"]
+               "name": "Server/Client secure",
+               "configurations": ["Server_secure", "Client_secure"]
           }
      ]
 }

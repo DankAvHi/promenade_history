@@ -5,5 +5,5 @@ sessions.db
 .pem
 localhost-key.pem
 localhost.pem
-.env
+*.env
 server.txt

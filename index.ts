@@ -80,10 +80,10 @@ if (SECURE === "true") {
      const server = https.createServer(httpsOptions, app);
 
      server.listen(HTTPS_PORT, () => {
-          console.log(`\n⚡[INFO] SECURE Server launched at ${URL} port: ${HTTPS_PORT}`);
+          console.log(`\n⚡[INFO] SECURE Server launched at https://${URL}:${HTTPS_PORT} port: ${HTTPS_PORT}`);
      });
 } else {
      app.listen(HTTP_PORT, () => {
-          console.log(`\n⚡[INFO] Server launched at ${URL} port: ${HTTP_PORT}`);
+          console.log(`\n⚡[INFO] Server launched at http://${URL}:${HTTP_PORT} port: ${HTTP_PORT}`);
      });
 }

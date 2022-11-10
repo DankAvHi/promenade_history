@@ -22,7 +22,6 @@ export const {
      REFRESH_TOKEN_SECRET,
      QTICKETS_API_TOKEN,
      QTICKETS_WEBHOOK_SIGNATURE_SECRET,
-     SECURE = "false",
      EMAIL_ADDRES,
      EMAIL_PASSWORD,
      SECURE_CERT_PATH,
@@ -30,6 +29,7 @@ export const {
 } = process.env;
 
 export const isDevelopment = NODE_ENV == "development" || process.argv[2] === "development";
+export const SECURE = process.argv[3] == "secure" ? "true" : process.env.SECURE;
 
 const requeiredValues: { [key: string]: any } = {
      CLIENT_URL,

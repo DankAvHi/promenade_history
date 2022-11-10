@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import useTopPopup from "../../../../Components/Common/TopPopup/TopPopup.hook";
+import TicketsModal from "../../../../Components/Modals/TicketsModal/TicketsModal";
 import Button from "../../../../Components/UI/Buttons/Button/Button";
 import Heading from "../../../../Components/UI/Headings/Heading/Heading";
 import SectionHeading from "../../../../Components/UI/Headings/SectionHeading/SectionHeading";
@@ -11,6 +12,8 @@ import TicketSectionText from "./TicketSection.text";
 const TicketSection = () => {
      const { isAuthenticated, email } = useContext(AuthContext);
      const { showTopPopup } = useTopPopup();
+
+     const [modalIsOpen, setModalIsOpen] = useState(false);
 
      const notAuthHandler = () => {
           if (!isAuthenticated) {
@@ -25,6 +28,12 @@ const TicketSection = () => {
                     type: "info",
                },
           });
+     };
+     const buyButtonOnClickHandler = () => {
+          setModalIsOpen(true);
+     };
+     const closeModalFunction = () => {
+          setModalIsOpen(false);
      };
      return (
           <div id="tickets" className={styles.TicketSection}>
@@ -59,9 +68,7 @@ const TicketSection = () => {
                                    />
                               )} */}
                               <Button
-                                   type="link"
-                                   href="https://krasnodar.qtickets.events/46947-history-combo"
-                                   external={true}
+                                   onClick={buyButtonOnClickHandler}
                                    className={styles.comboPrice}
                                    text={TicketSectionText.historyCombo.price}
                               />
@@ -95,6 +102,7 @@ const TicketSection = () => {
                          </div> */}
                     </div>
                </div>
+               {modalIsOpen ? <TicketsModal closeFunction={closeModalFunction} /> : null}
           </div>
      );
 };

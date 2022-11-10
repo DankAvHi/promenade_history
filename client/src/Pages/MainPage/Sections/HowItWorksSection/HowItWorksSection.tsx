@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import useTopPopup from "../../../../Components/Common/TopPopup/TopPopup.hook";
+import TicketsModal from "../../../../Components/Modals/TicketsModal/TicketsModal";
 import Button from "../../../../Components/UI/Buttons/Button/Button";
 import Heading from "../../../../Components/UI/Headings/Heading/Heading";
 import SectionHeading from "../../../../Components/UI/Headings/SectionHeading/SectionHeading";
@@ -11,6 +12,8 @@ import { actionCallText, actionText, headingText, itemsTexts } from "./HowItWork
 const HowItWorksSection = () => {
      const { isAuthenticated, email } = useContext(AuthContext);
      const { showTopPopup } = useTopPopup();
+
+     const [modalIsOpen, setModalIsOpen] = useState(false);
 
      const notAuthHandler = () => {
           if (!isAuthenticated) {
@@ -25,6 +28,12 @@ const HowItWorksSection = () => {
                     type: "info",
                },
           });
+     };
+     const buyButtonOnClickHandler = () => {
+          setModalIsOpen(true);
+     };
+     const closeModalFunction = () => {
+          setModalIsOpen(false);
      };
      return (
           <div id="howItWorks" className={styles.HowItWorksSection}>
@@ -64,15 +73,10 @@ const HowItWorksSection = () => {
                          ) : (
                               <Button text={actionText} onClick={notAuthHandler} className={styles.actionButton} />
                          )} */}
-                         <Button
-                              text={actionText}
-                              type={"link"}
-                              href="https://krasnodar.qtickets.events/46947-history-combo"
-                              external={true}
-                              className={styles.actionButton}
-                         />
+                         <Button text={actionText} onClick={buyButtonOnClickHandler} className={styles.actionButton} />
                     </div>
                </div>
+               {modalIsOpen ? <TicketsModal closeFunction={closeModalFunction} /> : null}
           </div>
      );
 };
