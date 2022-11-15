@@ -68,7 +68,7 @@ if (!HTTP_PORT || (SECURE && !HTTPS_PORT)) {
      throw new Error(`❌ [server] PORTS not provided in .env file`);
 }
 
-export const STATIC_PATH = isDevelopment ? path.resolve("client", "build") : path.resolve("public");
+export const STATIC_PATH = isDevelopment ? path.resolve("client", "build") : path.resolve("dist", "public");
 
 export const HOME_PAGE_ROUTE = isDevelopment ? CLIENT_URL : URL;
 
