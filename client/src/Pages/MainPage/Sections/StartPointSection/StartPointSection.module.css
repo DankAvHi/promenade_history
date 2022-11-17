@@ -109,8 +109,6 @@
      font-weight: 200;
 }
 .sellerPosition {
-     margin-right: 10px;
-
      max-width: 300px;
 
      display: inline-block;
@@ -118,6 +116,11 @@
      font-size: 2.05rem;
      line-height: 40px;
 }
+
+.emojiImage {
+     max-width: 100px;
+}
+
 .serviceAcces {
      margin-bottom: 90px;
 
