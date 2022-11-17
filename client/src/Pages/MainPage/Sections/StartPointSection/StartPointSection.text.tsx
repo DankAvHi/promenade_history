@@ -7,7 +7,7 @@ const StartPointText = {
           </>
      ),
 
-     locationTitle: <span>{"На кинотеатр Белая река"}</span>,
+     locationTitle: <span>{"Возле кинотеатра Белая река"}</span>,
      location: <span>{"Г. Белореченск, ул. Толстого 142"}</span>,
 
      timeTitle: <span>{"Время работы"}</span>,
@@ -17,15 +17,15 @@ const StartPointText = {
           <>
                <span className={textStyles.purpule50}>{"Билетер "}</span>
                <span>{"будет находиться "}</span>
-               <span className={textStyles.purpule50}>{"около фонтана"}</span>
+               <span className={textStyles.purpule50}>{"около кинотеатра"}</span>
           </>
      ),
      serviceAcces: (
           <>
                <span>{"Прогулка доступна с "}</span>
-               <span className={textStyles.purpule50}>{"10 утра"}</span>
+               <span className={textStyles.purpule50}>{"10 утра "}</span>
                <span>{"до "}</span>
-               <span className={textStyles.purpule50}>{"7 вечера"}</span>
+               <span className={textStyles.purpule50}>{"7 вечера "}</span>
           </>
      ),
 
