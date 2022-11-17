@@ -1,5 +1,5 @@
 import SectionHeading from "../../../../Components/UI/Headings/SectionHeading/SectionHeading";
-import fountainImage from "./Assets/fountain.png";
+import emojiImage from "./Assets/film_projector_3d.png";
 import startPointImage from "./Assets/startPointImage.png";
 import styles from "./StartPointSection.module.css";
 import StartPointText from "./StartPointSection.text";
@@ -24,7 +24,7 @@ const StartPointSection = () => {
                               </div>
                               <div className={styles.locationTexts}>
                                    <p className={styles.sellerPosition}>{StartPointText.sellerPosition}</p>
-                                   <img src={fountainImage} className={styles.fountainImage} alt="" />
+                                   <img src={emojiImage} className={styles.emojiImage} alt="" />
                               </div>
                          </div>
                     </div>
