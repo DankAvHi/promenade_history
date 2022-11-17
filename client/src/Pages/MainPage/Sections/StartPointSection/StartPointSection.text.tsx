@@ -7,8 +7,8 @@ const StartPointText = {
           </>
      ),
 
-     locationTitle: <span>{"Центральный парк, около фонтана"}</span>,
-     location: <span>{"Г. Белореченск, ул. Гоголя 59"}</span>,
+     locationTitle: <span>{"На кинотеатр Белая река"}</span>,
+     location: <span>{"Г. Белореченск, ул. Толстого 142"}</span>,
 
      timeTitle: <span>{"Время работы"}</span>,
      time: <span>{"с 9:00 до 19:00"}</span>,
