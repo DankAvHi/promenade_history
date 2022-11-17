@@ -11,7 +11,7 @@ const StartPointText = {
      location: <span>{"Г. Белореченск, ул. Толстого 142"}</span>,
 
      timeTitle: <span>{"Время работы"}</span>,
-     time: <span>{"с 9:00 до 19:00"}</span>,
+     time: <span>{"с 8:00 до 17:00"}</span>,
 
      sellerPosition: (
           <>
@@ -23,9 +23,9 @@ const StartPointText = {
      serviceAcces: (
           <>
                <span>{"Прогулка доступна с "}</span>
-               <span className={textStyles.purpule50}>{"10 утра "}</span>
+               <span className={textStyles.purpule50}>{"8 утра "}</span>
                <span>{"до "}</span>
-               <span className={textStyles.purpule50}>{"7 вечера "}</span>
+               <span className={textStyles.purpule50}>{"5 дня "}</span>
           </>
      ),
 
