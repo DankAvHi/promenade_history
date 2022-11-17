@@ -17,7 +17,7 @@ const StartPointText = {
           <>
                <span className={textStyles.purpule50}>{"Билетер "}</span>
                <span>{"будет находиться "}</span>
-               <span className={textStyles.purpule50}>{"около кинотеатра"}</span>
+               <span className={textStyles.purpule50}>{"на первом этаже "}</span>
           </>
      ),
      serviceAcces: (
