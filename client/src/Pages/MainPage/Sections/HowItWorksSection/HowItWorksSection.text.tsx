@@ -29,9 +29,9 @@ export const itemsTexts: { heading: ReactElement<HTMLSpanElement>; content: Reac
           content: (
                <p>
                     <span>{"Не забудь зарядить смартфон и взять любимые наушники. Приходи в любой день с "}</span>
-                    <span className={textStyles.purpule50}>{"10:00 "}</span>
+                    <span className={textStyles.purpule50}>{"8:00 "}</span>
                     <span>{"до "}</span>
-                    <span className={textStyles.purpule50}>{"19:00 "}</span>
+                    <span className={textStyles.purpule50}>{"17:00 "}</span>
                     <span>{"на точку старта (фонтан в городском парке) На старте тебя встретит наш сотрудник."}</span>
                </p>
           ),
