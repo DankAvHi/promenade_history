@@ -27,7 +27,7 @@ const TicketsModal = ({ closeFunction }: ModalProps) => {
                <iframe
                     title={`Tickets`}
                     className={styles.iframe}
-                    src="https://iframeab-pre7135.intickets.ru/event/12855015/"
+                    src="https://iframeab-pre7135.intickets.ru/event/12897229/"
                ></iframe>
           </div>
      );
