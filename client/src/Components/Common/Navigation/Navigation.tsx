@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../../contexts/AuthContext";
 import useWindowSize from "../../../hooks/windowSize.hook";
-import SiteSections from "../../../types/Navigation/siteSections.type";
+import SiteSections from "../../../types/Navigation/siteSections";
 import menuImage from "./Assets/Images/menuIcon.png";
 import styles from "./Navigation.module.css";
 

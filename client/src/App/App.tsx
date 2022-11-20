@@ -7,7 +7,7 @@ import { TopPopupArray } from "../Components/Common/TopPopup/TopPopup.d";
 import AuthContext from "../contexts/AuthContext";
 import { useAuth } from "../hooks/auth.hook";
 import useScrollLock from "../hooks/scrollLock";
-import SiteSections from "../types/Navigation/siteSections.type";
+import SiteSections from "../types/Navigation/siteSections";
 import styles from "./App.module.css";
 import { useRoutes } from "./App.routes";
 import AppContext from "./contexts/App.context";
