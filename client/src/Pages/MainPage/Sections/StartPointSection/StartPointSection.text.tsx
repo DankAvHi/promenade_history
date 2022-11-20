@@ -7,7 +7,7 @@ const StartPointText = {
           </>
      ),
 
-     locationTitle: <span>{"Возле кинотеатра Белая река"}</span>,
+     locationTitle: <span>{"В кинотеатре Белая река"}</span>,
      location: <span>{"Г. Белореченск, ул. Толстого 142"}</span>,
 
      timeTitle: <span>{"Время работы"}</span>,
