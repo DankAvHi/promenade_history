@@ -1,4 +1,5 @@
 import styles from "./MainPage.module.css";
+import Footer from "./Sections/Footer/Footer";
 import Header from "./Sections/Header/Header";
 import HowItWorksSection from "./Sections/HowItWorksSection/HowItWorksSection";
 import MoreAboutSection from "./Sections/MoreAboutSection/MoreAboutSection";
@@ -20,6 +21,7 @@ export default function MainPage() {
                     <WhatIsComboSection />
                     <PushkinCardSection />
                     <TicketSection />
+                    <Footer />
                </main>
           </div>
      );
