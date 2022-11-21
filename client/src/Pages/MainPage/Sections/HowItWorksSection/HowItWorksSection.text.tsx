@@ -32,7 +32,7 @@ export const itemsTexts: { heading: ReactElement<HTMLSpanElement>; content: Reac
                     <span className={textStyles.purpule50}>{"8:00 "}</span>
                     <span>{"до "}</span>
                     <span className={textStyles.purpule50}>{"17:00 "}</span>
-                    <span>{"на точку старта (фонтан в городском парке) На старте тебя встретит наш сотрудник."}</span>
+                    <span>{"на точку старта (первый этаж кинотеатра) На старте тебя встретит наш сотрудник."}</span>
                </p>
           ),
      },
